@@ -1,7 +1,8 @@
 import Link from "next/link"
 import { Project } from "@/types/project"
 import { Button } from "@/components/ui/button"
-import { ExternalLink, Github } from "lucide-react"
+import { ExternalLink } from "lucide-react"
+import { siGithub } from "simple-icons"
 
 interface ProjectCardProps {
   project: Project
@@ -81,7 +82,14 @@ export function ProjectCard({ project }: ProjectCardProps) {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Github className="h-4 w-4" />
+              <svg
+                className="h-4 w-4"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path d={siGithub.path} />
+              </svg>
             </Link>
           </Button>
         )}

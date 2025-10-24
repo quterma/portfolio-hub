@@ -34,6 +34,9 @@ importers:
       react-dom:
         specifier: 19.2.0
         version: 19.2.0(react@19.2.0)
+      simple-icons:
+        specifier: ^15.17.0
+        version: 15.17.0
       tailwind-merge:
         specifier: ^3.3.1
         version: 3.3.1
@@ -3663,6 +3666,13 @@ packages:
       }
     engines: { node: ">=14" }
 
+  simple-icons@15.17.0:
+    resolution:
+      {
+        integrity: sha512-viOcugYj+JFYVWJvDh4Ph1xHk9iTGhzt+NoPrfAQYSCADvmZFSQUWyKEbSMuqVRUsaRgvADn+Cczysemsf1N3Q==,
+      }
+    engines: { node: ">=0.12.18" }
+
   sisteransi@1.0.5:
     resolution:
       {
@@ -6384,6 +6394,8 @@ snapshots:
   signal-exit@3.0.7: {}
 
   signal-exit@4.1.0: {}
+
+  simple-icons@15.17.0: {}
 
   sisteransi@1.0.5: {}
 
