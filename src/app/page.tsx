@@ -18,7 +18,7 @@ export default function Home() {
             <Link href={siteConfig.routes.projects}>View Projects</Link>
           </Button>
           <Button variant="outline" asChild>
-            <Link href={siteConfig.routes.about}>About Me !!! TEST !!!</Link>
+            <Link href={siteConfig.routes.about}>About Me</Link>
           </Button>
         </div>
       </div>
