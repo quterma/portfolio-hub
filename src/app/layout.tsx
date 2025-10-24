@@ -28,9 +28,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {/* TODO: Add Navbar component */}
-        <main>
-          {children}
-        </main>
+        <main>{children}</main>
         {/* TODO: Add Footer component */}
       </body>
     </html>
