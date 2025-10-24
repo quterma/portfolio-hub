@@ -3,16 +3,14 @@ import { Inter } from "next/font/google"
 import "./globals.css"
 import { Header } from "@/components/layout/header"
 import { Footer } from "@/components/layout/footer"
+import { defaultMetadata } from "../../next-seo.config"
 
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
 })
 
-export const metadata: Metadata = {
-  title: "Portfolio Hub",
-  description: "Personal portfolio showcasing projects and experience",
-}
+export const metadata: Metadata = defaultMetadata
 
 export default function RootLayout({
   children,

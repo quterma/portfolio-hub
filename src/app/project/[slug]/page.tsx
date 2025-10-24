@@ -9,6 +9,7 @@ import { Separator } from "@/components/ui/separator"
 import { getProjectBySlug } from "@/lib/projects"
 import { ArrowLeft, ExternalLink, Globe } from "lucide-react"
 import { siGithub } from "simple-icons"
+import { seoConfig } from "../../../../next-seo.config"
 
 interface ProjectPageProps {
   params: Promise<{
@@ -24,19 +25,52 @@ export async function generateMetadata({
 
   if (!project) {
     return {
-      title: "Project Not Found - Portfolio Hub",
+      title: "Project Not Found",
       description: "The requested project could not be found",
+      robots: {
+        index: false,
+        follow: false,
+      },
     }
   }
 
+  const projectImageUrl = project.images.hero || seoConfig.ogImage
+  const projectUrl = `${seoConfig.url}/project/${project.slug}`
+
   return {
-    title: `${project.title} - Portfolio Hub`,
+    title: project.title,
     description: project.summary,
+    keywords: [
+      ...project.tech,
+      ...project.tags,
+      "portfolio",
+      "project",
+      "web development",
+    ],
     openGraph: {
       title: project.title,
       description: project.summary,
       type: "article",
-      images: project.images.hero ? [project.images.hero] : [],
+      siteName: seoConfig.siteName,
+      url: projectUrl,
+      images: [
+        {
+          url: projectImageUrl,
+          width: 1200,
+          height: 630,
+          alt: `${project.title} - Portfolio Project`,
+          type: "image/png",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: project.title,
+      description: project.summary,
+      images: [projectImageUrl],
+    },
+    alternates: {
+      canonical: projectUrl,
     },
   }
 }
