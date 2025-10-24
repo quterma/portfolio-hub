@@ -7,4 +7,4 @@ export const siteConfig = {
     about: "/about",
     contact: "/contact",
   },
-} as const;
+} as const

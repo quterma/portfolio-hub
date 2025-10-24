@@ -1,7 +1,7 @@
-import { defineConfig, globalIgnores } from "eslint/config";
-import nextVitals from "eslint-config-next/core-web-vitals";
-import nextTs from "eslint-config-next/typescript";
-import prettier from "eslint-config-prettier";
+import { defineConfig, globalIgnores } from "eslint/config"
+import nextVitals from "eslint-config-next/core-web-vitals"
+import nextTs from "eslint-config-next/typescript"
+import prettier from "eslint-config-prettier"
 
 const eslintConfig = defineConfig([
   ...nextVitals,
@@ -9,7 +9,14 @@ const eslintConfig = defineConfig([
   prettier,
   {
     rules: {
-      "prettier/prettier": "error",
+      // Ensure ESLint reports Prettier formatting issues and respect Prettier config
+      "prettier/prettier": [
+        "error",
+        {
+          // Keep in sync with .prettierrc - no semicolons
+          semi: false,
+        },
+      ],
     },
     plugins: {
       prettier: (await import("eslint-plugin-prettier")).default,
@@ -23,6 +30,6 @@ const eslintConfig = defineConfig([
     "build/**",
     "next-env.d.ts",
   ]),
-]);
+])
 
-export default eslintConfig;
+export default eslintConfig
