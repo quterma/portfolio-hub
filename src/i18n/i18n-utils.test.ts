@@ -7,13 +7,13 @@ import {
   getAvailableLocales,
   getDefaultLocale,
 } from "./i18n-utils"
-import type { Locale } from "./locales"
+import { LOCALES, defaultLocale, type Locale } from "./locales"
 
 describe("i18n Utilities", () => {
   describe("Core Utils (Unit Tests)", () => {
     describe("getMessages", () => {
       it("should return English messages for 'en' locale", () => {
-        const messages = getMessages("en")
+        const messages = getMessages(LOCALES.EN)
 
         expect(messages).toBeDefined()
         expect(messages.meta).toBeDefined()
@@ -25,7 +25,7 @@ describe("i18n Utilities", () => {
       })
 
       it("should return Russian messages for 'ru' locale", () => {
-        const messages = getMessages("ru")
+        const messages = getMessages(LOCALES.RU)
 
         expect(messages).toBeDefined()
         expect(messages.meta).toBeDefined()
@@ -39,7 +39,7 @@ describe("i18n Utilities", () => {
       it("should fallback to default locale for invalid locale", () => {
         // @ts-expect-error - Testing invalid locale
         const messages = getMessages("invalid")
-        const defaultMessages = getMessages("en")
+        const defaultMessages = getMessages(defaultLocale)
 
         expect(messages).toEqual(defaultMessages)
       })
@@ -47,8 +47,8 @@ describe("i18n Utilities", () => {
 
     describe("isSupportedLocale", () => {
       it("should return true for supported locales", () => {
-        expect(isSupportedLocale("en")).toBe(true)
-        expect(isSupportedLocale("ru")).toBe(true)
+        expect(isSupportedLocale(LOCALES.EN)).toBe(true)
+        expect(isSupportedLocale(LOCALES.RU)).toBe(true)
       })
 
       it("should return false for unsupported locales", () => {
@@ -73,23 +73,23 @@ describe("i18n Utilities", () => {
         const locales = getAvailableLocales()
 
         expect(locales).toHaveLength(2)
-        expect(locales).toContain("en")
-        expect(locales).toContain("ru")
+        expect(locales).toContain(LOCALES.EN)
+        expect(locales).toContain(LOCALES.RU)
       })
     })
 
     describe("getDefaultLocale", () => {
       it("should return default locale", () => {
-        const defaultLocale = getDefaultLocale()
+        const locale = getDefaultLocale()
 
-        expect(defaultLocale).toBe("en")
-        expect(isSupportedLocale(defaultLocale)).toBe(true)
+        expect(locale).toBe(defaultLocale)
+        expect(isSupportedLocale(locale)).toBe(true)
       })
     })
 
     describe("Type safety", () => {
       it("should have proper TypeScript types", () => {
-        const locale: Locale = "en"
+        const locale: Locale = LOCALES.EN
         const messages = getMessages(locale)
 
         // Type checking - these should compile without errors
@@ -112,6 +112,26 @@ describe("i18n Utilities", () => {
           expect(isSupportedLocale(locale)).toBe(true)
           expect(getMessages(locale)).toBeDefined()
         })
+      })
+    })
+
+    describe("Typed constants usage", () => {
+      it("should work with LOCALES constants", () => {
+        const enMessages = getMessages(LOCALES.EN)
+        const ruMessages = getMessages(LOCALES.RU)
+
+        expect(enMessages).toBeDefined()
+        expect(ruMessages).toBeDefined()
+        expect(enMessages.meta.siteTitle).toContain("Portfolio Hub")
+        expect(ruMessages.meta.siteTitle).toContain("Портфолио Хаб")
+      })
+
+      it("should use defaultLocale constant correctly", () => {
+        const defaultMessages = getMessages(defaultLocale)
+        const enMessages = getMessages(LOCALES.EN)
+
+        expect(defaultMessages).toEqual(enMessages)
+        expect(defaultLocale).toBe(LOCALES.EN)
       })
     })
   })
@@ -159,14 +179,14 @@ describe("i18n Utilities", () => {
 
     describe("Local utils (no HTTP)", () => {
       it("should work with local utilities", () => {
-        expect(isSupportedLocale("en")).toBe(true)
-        expect(isSupportedLocale("ru")).toBe(true)
+        expect(isSupportedLocale(LOCALES.EN)).toBe(true)
+        expect(isSupportedLocale(LOCALES.RU)).toBe(true)
         expect(isSupportedLocale("fr")).toBe(false)
       })
 
       it("should get local messages", () => {
-        const enMessages = getMessages("en")
-        const ruMessages = getMessages("ru")
+        const enMessages = getMessages(LOCALES.EN)
+        const ruMessages = getMessages(LOCALES.RU)
 
         expect(enMessages.meta.siteTitle).toContain("Portfolio Hub")
         expect(ruMessages.meta.siteTitle).toContain("Портфолио Хаб")
@@ -214,7 +234,7 @@ describe("i18n Utilities", () => {
 
     describe("Integration example", () => {
       it("should validate locale before API call", async () => {
-        const locale = "en"
+        const locale = LOCALES.EN
 
         // First check if locale is supported locally
         if (isSupportedLocale(locale)) {
