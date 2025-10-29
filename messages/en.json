@@ -1,0 +1,16 @@
+{
+  "meta": {
+    "siteTitle": "Portfolio Hub - Web Developer Portfolio",
+    "siteDescription": "Personal portfolio showcasing projects and experience in web development"
+  },
+  "nav": {
+    "home": "Home",
+    "projects": "Projects",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "cta": {
+    "repo": "View Repository",
+    "demo": "View Demo"
+  }
+}

@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest"
-import { createTestProject } from "./utils"
+import { createTestProject } from "./test-helpers"
 
 describe("Test Utils", () => {
   it("should create test project with defaults", () => {
