@@ -1,20 +1,16 @@
-import type { Metadata } from "next"
 import { Container } from "@/components/ui/container"
 import { ProjectCard } from "@/components/ui/project-card"
 import { getAllProjects } from "@/lib/projects"
+import { type Locale } from "@/i18n/routing"
 
-export const metadata: Metadata = {
-  title: "Projects - Portfolio Hub",
-  description:
-    "Explore my portfolio of projects and technical work. Discover the technologies, methodologies, and solutions I've implemented across various domains.",
-  openGraph: {
-    title: "Projects - Portfolio Hub",
-    description: "Explore my portfolio of projects and technical work",
-    type: "website",
-  },
+type ProjectsPageProps = {
+  params: Promise<{
+    locale: Locale
+  }>
 }
 
-export default function ProjectsPage() {
+export default async function ProjectsPage({ params }: ProjectsPageProps) {
+  const { locale } = await params // eslint-disable-line @typescript-eslint/no-unused-vars
   const projects = getAllProjects().sort((a, b) => b.year - a.year)
 
   return (

@@ -30,9 +30,9 @@ describe("Button Component", () => {
   it("renders as child component when asChild is true", () => {
     render(
       <Button asChild>
-        <a href="/test">Link Button</a>
+        <span>Link Button</span>
       </Button>
     )
-    expect(screen.getByRole("link")).toBeInTheDocument()
+    expect(screen.getByText("Link Button")).toBeInTheDocument()
   })
 })

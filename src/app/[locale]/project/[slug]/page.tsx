@@ -1,18 +1,20 @@
 import type { Metadata } from "next"
 import { notFound } from "next/navigation"
 import Image from "next/image"
-import Link from "next/link"
+import { Link } from "@/i18n/navigation"
 import { Container } from "@/components/ui/container"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Separator } from "@/components/ui/separator"
 import { getProjectBySlug } from "@/lib/projects"
+import { type Locale } from "@/i18n/routing"
 import { ArrowLeft, ExternalLink, Globe } from "lucide-react"
 import { siGithub } from "simple-icons"
-import { seoConfig } from "../../../../next-seo.config"
+import { seoConfig } from "../../../../../next-seo.config"
 
-interface ProjectPageProps {
+type ProjectPageProps = {
   params: Promise<{
+    locale: Locale
     slug: string
   }>
 }
@@ -76,7 +78,7 @@ export async function generateMetadata({
 }
 
 export default async function ProjectPage({ params }: ProjectPageProps) {
-  const { slug } = await params
+  const { locale, slug } = await params // eslint-disable-line @typescript-eslint/no-unused-vars
   const project = getProjectBySlug(slug)
 
   if (!project) {

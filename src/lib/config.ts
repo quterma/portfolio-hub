@@ -8,3 +8,7 @@ export const siteConfig = {
     contact: "/contact",
   },
 } as const
+
+export type RouteKey = keyof typeof siteConfig.routes
+
+export type RoutePath = (typeof siteConfig.routes)[RouteKey]

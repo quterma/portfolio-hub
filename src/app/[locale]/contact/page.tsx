@@ -1,13 +1,16 @@
-import type { Metadata } from "next"
 import { Container } from "@/components/ui/container"
 import { Button } from "@/components/ui/button"
+import { type Locale } from "@/i18n/routing"
 
-export const metadata: Metadata = {
-  title: "Contact - Portfolio Hub",
-  description: "Get in touch with me for opportunities and collaborations",
+type ContactPageProps = {
+  params: Promise<{
+    locale: Locale
+  }>
 }
 
-export default function ContactPage() {
+export default async function ContactPage({ params }: ContactPageProps) {
+  const { locale } = await params // eslint-disable-line @typescript-eslint/no-unused-vars
+
   return (
     <Container>
       <div className="flex flex-col space-y-8 py-12">
