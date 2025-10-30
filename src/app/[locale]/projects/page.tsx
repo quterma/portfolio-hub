@@ -1,11 +1,10 @@
 import { Container } from "@/components/ui/container"
 import { ProjectCard } from "@/components/ui/project-card"
 import { getAllProjects } from "@/lib/projects"
-import { type Locale } from "@/i18n/routing"
 
 type ProjectsPageProps = {
   params: Promise<{
-    locale: Locale
+    locale: string
   }>
 }
 

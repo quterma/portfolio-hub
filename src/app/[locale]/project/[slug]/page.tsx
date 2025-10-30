@@ -7,14 +7,13 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Separator } from "@/components/ui/separator"
 import { getProjectBySlug } from "@/lib/projects"
-import { type Locale } from "@/i18n/routing"
 import { ArrowLeft, ExternalLink, Globe } from "lucide-react"
 import { siGithub } from "simple-icons"
 import { seoConfig } from "../../../../../next-seo.config"
 
 type ProjectPageProps = {
   params: Promise<{
-    locale: Locale
+    locale: string
     slug: string
   }>
 }

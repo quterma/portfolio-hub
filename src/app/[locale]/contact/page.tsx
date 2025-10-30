@@ -1,10 +1,9 @@
 import { Container } from "@/components/ui/container"
 import { Button } from "@/components/ui/button"
-import { type Locale } from "@/i18n/routing"
 
 type ContactPageProps = {
   params: Promise<{
-    locale: Locale
+    locale: string
   }>
 }
 

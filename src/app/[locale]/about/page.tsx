@@ -1,9 +1,8 @@
 import { Container } from "@/components/ui/container"
-import { type Locale } from "@/i18n/routing"
 
 type AboutPageProps = {
   params: Promise<{
-    locale: Locale
+    locale: string
   }>
 }
 

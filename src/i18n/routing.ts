@@ -6,5 +6,3 @@ export const routing = defineRouting({
   // Отключаем автоопределение локали по заголовкам браузера
   localeDetection: false,
 })
-
-export type Locale = (typeof routing.locales)[number]
