@@ -1,4 +1,3 @@
-import type { Metadata } from "next"
 import { notFound } from "next/navigation"
 import Image from "next/image"
 import { Link } from "@/i18n/navigation"
@@ -9,7 +8,6 @@ import { Separator } from "@/components/ui/separator"
 import { getProjectBySlug } from "@/lib/projects"
 import { ArrowLeft, ExternalLink, Globe } from "lucide-react"
 import { siGithub } from "simple-icons"
-import { seoConfig } from "../../../../../next-seo.config"
 
 type ProjectPageProps = {
   params: Promise<{
@@ -18,63 +16,8 @@ type ProjectPageProps = {
   }>
 }
 
-export async function generateMetadata({
-  params,
-}: ProjectPageProps): Promise<Metadata> {
-  const { slug } = await params
-  const project = getProjectBySlug(slug)
-
-  if (!project) {
-    return {
-      title: "Project Not Found",
-      description: "The requested project could not be found",
-      robots: {
-        index: false,
-        follow: false,
-      },
-    }
-  }
-
-  const projectImageUrl = project.images.hero || seoConfig.ogImage
-  const projectUrl = `${seoConfig.url}/project/${project.slug}`
-
-  return {
-    title: project.title,
-    description: project.summary,
-    keywords: [
-      ...project.tech,
-      ...project.tags,
-      "portfolio",
-      "project",
-      "web development",
-    ],
-    openGraph: {
-      title: project.title,
-      description: project.summary,
-      type: "article",
-      siteName: seoConfig.siteName,
-      url: projectUrl,
-      images: [
-        {
-          url: projectImageUrl,
-          width: 1200,
-          height: 630,
-          alt: `${project.title} - Portfolio Project`,
-          type: "image/png",
-        },
-      ],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: project.title,
-      description: project.summary,
-      images: [projectImageUrl],
-    },
-    alternates: {
-      canonical: projectUrl,
-    },
-  }
-}
+// TODO: SEO metadata will be handled by localized layout or dedicated SEO helper
+// Removed generateMetadata to keep this page focused on data loading and rendering
 
 export default async function ProjectPage({ params }: ProjectPageProps) {
   const { locale, slug } = await params // eslint-disable-line @typescript-eslint/no-unused-vars
