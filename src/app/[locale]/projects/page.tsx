@@ -2,14 +2,37 @@ import { Container } from "@/components/ui/container"
 import { ProjectCard } from "@/components/ui/project-card"
 import { getAllProjects } from "@/lib/projects"
 
+// Using buildLocaleMetadata with page-specific title override
+import { buildLocaleMetadata } from "@/lib/seo"
+import type { Metadata } from "next"
+import type { LocaleParams } from "@/types/route"
+
 type ProjectsPageProps = {
   params: Promise<{
     locale: string
   }>
 }
 
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<LocaleParams>
+}): Promise<Metadata> {
+  const { locale } = await params
+
+  // Override title for Projects page with proper canonical
+  return buildLocaleMetadata(
+    locale,
+    {
+      title: "Projects",
+    },
+    "/projects"
+  )
+}
+
 export default async function ProjectsPage({ params }: ProjectsPageProps) {
   const { locale } = await params // eslint-disable-line @typescript-eslint/no-unused-vars
+
   const projects = getAllProjects().sort((a, b) => b.year - a.year)
 
   return (

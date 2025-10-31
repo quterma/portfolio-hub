@@ -9,8 +9,10 @@ type HomeProps = {
   }>
 }
 
+// No page-level generateMetadata - using layout's localized defaults
 export default async function Home({ params }: HomeProps) {
   const { locale } = await params
+
   const t = await getTranslations({ locale })
 
   return (

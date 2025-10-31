@@ -12,5 +12,10 @@
   "cta": {
     "repo": "View Repository",
     "demo": "View Demo"
+  },
+  "common": {
+    "pageNotFound": "Page Not Found",
+    "pageNotFoundDescription": "The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.",
+    "goHome": "Go Back Home"
   }
 }
