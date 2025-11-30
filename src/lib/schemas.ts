@@ -19,8 +19,8 @@ export const ProjectSchema = z.object({
     .optional(),
   featured: z.boolean().optional(),
 
-  role: z.string().optional(),
-  period: z.string().optional(),
+  role: LocalizedTextSchema.optional(),
+  period: LocalizedTextSchema.optional(),
 
   tags: z.array(z.string()).optional(),
   tech: z.array(z.string()).optional(),

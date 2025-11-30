@@ -9,10 +9,10 @@ describe("Project Utilities", () => {
   })
 
   it("should get project by slug", () => {
-    const project = getProjectBySlug("progis-test")
+    const project = getProjectBySlug("product-showcase")
     expect(project).toBeDefined()
-    expect(project?.slug).toBe("progis-test")
-    expect(project?.title.en).toBe("Progis Test")
+    expect(project?.slug).toBe("product-showcase")
+    expect(project?.title.en).toBe("Product Showcase")
   })
 
   it("should return null for non-existent project", () => {

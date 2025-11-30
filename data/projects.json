@@ -1,39 +1,188 @@
 [
   {
-    "slug": "progis-test",
+    "slug": "product-showcase",
     "title": {
-      "en": "Progis Test"
+      "en": "Product Showcase",
+      "ru": "Витрина Товаров"
     },
     "summary": {
-      "en": "A comprehensive testing application built with modern web technologies to demonstrate full-stack development capabilities."
+      "en": "Modern e-commerce demo with advanced filtering, CRUD operations, and responsive UI",
+      "ru": "Современное демо интернет-магазина с продвинутой фильтрацией, CRUD операциями и адаптивным UI"
     },
     "description": {
-      "en": "This project showcases advanced frontend and backend integration with real-time features, responsive design, and robust testing infrastructure. Built as a demonstration of technical proficiency and problem-solving abilities."
+      "en": "A comprehensive e-commerce demonstration built to showcase modern frontend architecture and development skills. Features include advanced filtering with search, category selection, price range slider, and rating filters with debounced input and URL state persistence. Implements full CRUD operations with React Hook Form, Zod validation, and optimistic UI updates. Includes favorites management with localStorage persistence, client-side pagination with mobile-optimized controls, and light/dark theme toggle with smooth transitions.",
+      "ru": "Комплексная демонстрация интернет-магазина, созданная для демонстрации современной фронтенд-архитектуры и навыков разработки. Включает продвинутую фильтрацию с поиском, выбором категорий, слайдером диапазона цен и фильтрами рейтинга с отложенным вводом и сохранением состояния в URL. Реализует полный CRUD с React Hook Form, валидацией Zod и оптимистичными обновлениями UI. Включает управление избранным с сохранением в localStorage, клиентскую пагинацию с мобильными элементами управления и переключение светлой/тёмной темы с плавными переходами."
     },
     "year": 2024,
     "status": "completed",
     "featured": true,
-    "tags": ["web-development", "full-stack", "testing", "demo"],
+    "role": {
+      "en": "Full-stack Frontend Developer",
+      "ru": "Full-stack Frontend разработчик"
+    },
+    "period": {
+      "en": "November 2024",
+      "ru": "Ноябрь 2024"
+    },
+    "highlights": [
+      {
+        "en": "Feature-Sliced Design architecture for scalability",
+        "ru": "Архитектура Feature-Sliced Design для масштабируемости"
+      },
+      {
+        "en": "Comprehensive testing with Vitest and Playwright",
+        "ru": "Комплексное тестирование с Vitest и Playwright"
+      },
+      {
+        "en": "Accessibility-first component design with Radix UI",
+        "ru": "Компоненты с приоритетом доступности на Radix UI"
+      },
+      {
+        "en": "Performance optimization with React 19 Compiler",
+        "ru": "Оптимизация производительности с React 19 Compiler"
+      }
+    ],
+    "tags": ["e-commerce", "frontend", "react", "typescript", "portfolio"],
     "tech": [
-      "React",
-      "TypeScript",
-      "Node.js",
-      "Express",
-      "PostgreSQL",
-      "Jest",
-      "Cypress",
-      "Tailwind CSS"
+      "Next.js 16",
+      "React 19",
+      "TypeScript 5",
+      "Redux Toolkit 2.9",
+      "RTK Query",
+      "React Hook Form",
+      "Zod",
+      "Tailwind CSS v4",
+      "Radix UI",
+      "Vitest",
+      "Playwright"
     ],
     "urls": {
-      "demo": "https://progis-test-demo.vercel.app",
-      "github": "https://github.com/username/progis-test"
+      "demo": "https://prod-show-case.vercel.app",
+      "github": "https://github.com/quterma/prod-show-case"
     },
     "images": {
-      "cover": "/images/projects/progis-test/hero.jpg",
+      "cover": "/projects/product-showcase/cover.jpg",
       "gallery": [
-        "/images/projects/progis-test/dashboard.jpg",
-        "/images/projects/progis-test/mobile.jpg",
-        "/images/projects/progis-test/admin.jpg"
+        "/projects/product-showcase/filters.jpg",
+        "/projects/product-showcase/crud.jpg",
+        "/projects/product-showcase/mobile.jpg"
+      ]
+    }
+  },
+  {
+    "slug": "progis-map-app",
+    "title": {
+      "en": "Progis Map Application",
+      "ru": "Картографическое Приложение Progis"
+    },
+    "summary": {
+      "en": "Lightweight geospatial application with WMS/OGC integration and smart hybrid identify system",
+      "ru": "Легковесное геопространственное приложение с интеграцией WMS/OGC и умной гибридной системой идентификации"
+    },
+    "description": {
+      "en": "A React + TypeScript demo application for displaying and querying geospatial data using WMS/OGC standards. Built with Vite and Leaflet, following clean architecture principles. Features include interactive Leaflet map with OpenStreetMap base tiles, configurable layer system, WMS GetFeatureInfo for feature identification with popup attributes, and smart hybrid identify that combines reverse geocoding via OpenStreetMap Nominatim on high zoom with country information via WMS on low zoom. Includes optional auto-center to user geolocation with fallback to USA.",
+      "ru": "Демонстрационное приложение на React + TypeScript для отображения и запроса геопространственных данных с использованием стандартов WMS/OGC. Построено на Vite и Leaflet с соблюдением принципов чистой архитектуры. Включает интерактивную карту Leaflet с базовыми тайлами OpenStreetMap, настраиваемую систему слоёв, WMS GetFeatureInfo для идентификации объектов с всплывающими атрибутами и умную гибридную идентификацию, объединяющую обратное геокодирование через OpenStreetMap Nominatim на высоком зуме с информацией о стране через WMS на низком зуме. Включает опциональное автоцентрирование на геолокацию пользователя с откатом на США."
+    },
+    "year": 2024,
+    "status": "in-progress",
+    "featured": false,
+    "role": {
+      "en": "Frontend Developer",
+      "ru": "Frontend разработчик"
+    },
+    "period": {
+      "en": "October - November 2024",
+      "ru": "Октябрь - Ноябрь 2024"
+    },
+    "highlights": [
+      {
+        "en": "Clean architecture with infrastructure/UI separation",
+        "ru": "Чистая архитектура с разделением инфраструктуры и UI"
+      },
+      {
+        "en": "Comprehensive Russian JSDoc documentation",
+        "ru": "Полная документация JSDoc на русском языке"
+      },
+      {
+        "en": "Production-ready modular structure",
+        "ru": "Готовая к продакшену модульная структура"
+      }
+    ],
+    "tags": ["geospatial", "maps", "wms", "ogc", "gis"],
+    "tech": [
+      "React 19",
+      "TypeScript 5",
+      "Vite",
+      "Leaflet",
+      "OpenStreetMap",
+      "WMS/OGC",
+      "Vitest"
+    ],
+    "urls": {
+      "demo": "https://quterma.github.io/progis-map-app",
+      "github": "https://github.com/quterma/progis-map-app"
+    },
+    "images": {
+      "cover": "/projects/progis-map-app/cover.jpg",
+      "gallery": [
+        "/projects/progis-map-app/identify.jpg",
+        "/projects/progis-map-app/layers.jpg"
+      ]
+    }
+  },
+  {
+    "slug": "trading-mini-app",
+    "title": {
+      "en": "Trading Mini App",
+      "ru": "Мини-приложение для Трейдинга"
+    },
+    "summary": {
+      "en": "Mobile-first trading widget with wallet connection and real-time price charts",
+      "ru": "Мобильный виджет для трейдинга с подключением кошелька и графиками цен в реальном времени"
+    },
+    "description": {
+      "en": "A lightweight mobile trading widget designed as an embeddable component. Built with minimal Feature-Sliced Design architecture for a clean, modular structure. Features wallet connection management with mock wallet state, real-time price charts powered by Recharts displaying 24-hour price data, and a mobile-first responsive design optimized for embedding. All state management is handled through React hooks without external state managers, following public API pattern with index.ts exports and path aliases for clean imports.",
+      "ru": "Легковесный мобильный виджет для трейдинга, разработанный как встраиваемый компонент. Построен с минимальной архитектурой Feature-Sliced Design для чистой модульной структуры. Включает управление подключением кошелька с моковым состоянием, графики цен в реальном времени на базе Recharts с отображением данных за 24 часа и мобильный адаптивный дизайн, оптимизированный для встраивания. Всё управление состоянием реализовано через хуки React без внешних стейт-менеджеров, следуя паттерну публичного API с экспортами через index.ts и алиасами путей для чистых импортов."
+    },
+    "year": 2024,
+    "status": "in-progress",
+    "featured": false,
+    "role": {
+      "en": "Frontend Developer",
+      "ru": "Frontend разработчик"
+    },
+    "period": {
+      "en": "November 2024",
+      "ru": "Ноябрь 2024"
+    },
+    "highlights": [
+      {
+        "en": "Minimal FSD architecture for one-day implementation",
+        "ru": "Минимальная FSD архитектура для реализации за один день"
+      },
+      {
+        "en": "Embed-friendly mobile widget design",
+        "ru": "Встраиваемый дизайн мобильного виджета"
+      },
+      {
+        "en": "Hook-based state management without external libraries",
+        "ru": "Управление состоянием на хуках без внешних библиотек"
+      }
+    ],
+    "tags": ["trading", "mobile", "widget", "embed", "web3"],
+    "tech": [
+      "React 19",
+      "TypeScript 5",
+      "Vite",
+      "Tailwind CSS v4",
+      "Recharts",
+      "Vitest"
+    ],
+    "images": {
+      "cover": "/projects/trading-mini-app/cover.jpg",
+      "gallery": [
+        "/projects/trading-mini-app/wallet.jpg",
+        "/projects/trading-mini-app/chart.jpg"
       ]
     }
   }
