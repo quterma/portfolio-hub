@@ -1,4 +1,5 @@
 import { Container } from "@/components/ui/container"
+import { getTranslations } from "next-intl/server"
 
 type AboutPageProps = {
   params: Promise<{
@@ -7,27 +8,28 @@ type AboutPageProps = {
 }
 
 export default async function AboutPage({ params }: AboutPageProps) {
-  const { locale } = await params // eslint-disable-line @typescript-eslint/no-unused-vars
+  const { locale } = await params
+  const t = await getTranslations({ locale })
 
   return (
     <Container>
       <div className="flex flex-col space-y-8 py-12">
         <h1 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
-          About Me
+          {t("about.title")}
         </h1>
         <div className="prose prose-gray dark:prose-invert max-w-none">
-          <p className="text-lg text-muted-foreground">
-            Welcome to my portfolio! I&apos;m a passionate developer focused on
-            creating innovative solutions and building exceptional user
-            experiences.
-          </p>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">Background</h2>
+          <p className="text-lg text-muted-foreground">{t("about.intro")}</p>
+          <h2 className="text-2xl font-semibold mt-8 mb-4">
+            {t("about.sections.background")}
+          </h2>
           <p className="text-muted-foreground">
-            More details about my background and journey will be added here.
+            {t("about.placeholders.background")}
           </p>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">Skills</h2>
+          <h2 className="text-2xl font-semibold mt-8 mb-4">
+            {t("about.sections.skills")}
+          </h2>
           <p className="text-muted-foreground">
-            Technical skills and expertise will be showcased here.
+            {t("about.placeholders.skills")}
           </p>
         </div>
       </div>

@@ -17,9 +17,15 @@ export { renderWithProviders as render }
 // Test data factory for projects
 export const createTestProject = (overrides?: Partial<Project>): Project => ({
   slug: "test-project",
-  title: "Test Project",
-  summary: "A test project",
-  description: "A detailed description of the test project",
+  title: {
+    en: "Test Project",
+  },
+  summary: {
+    en: "A test project",
+  },
+  description: {
+    en: "A detailed description of the test project",
+  },
   status: "completed",
   year: 2024,
   featured: false,
@@ -30,8 +36,8 @@ export const createTestProject = (overrides?: Partial<Project>): Project => ({
     github: "https://github.com/example/test",
   },
   images: {
-    hero: "/test-hero.jpg",
-    screenshots: [],
+    cover: "/test-hero.jpg",
+    gallery: [],
   },
   ...overrides,
 })

@@ -1,6 +1,7 @@
 import { Container } from "@/components/ui/container"
 import { ProjectCard } from "@/components/ui/project-card"
 import { getAllProjects } from "@/lib/projects"
+import { getTranslations } from "next-intl/server"
 
 // Using buildLocaleMetadata with page-specific title override
 import { buildLocaleMetadata } from "@/lib/seo"
@@ -31,9 +32,14 @@ export async function generateMetadata({
 }
 
 export default async function ProjectsPage({ params }: ProjectsPageProps) {
-  const { locale } = await params // eslint-disable-line @typescript-eslint/no-unused-vars
+  const { locale } = await params
+  const t = await getTranslations({ locale })
 
-  const projects = getAllProjects().sort((a, b) => b.year - a.year)
+  const projects = getAllProjects().sort((a, b) => {
+    const aYear = a.year ?? 0
+    const bYear = b.year ?? 0
+    return bYear - aYear
+  })
 
   return (
     <Container>
@@ -41,16 +47,14 @@ export default async function ProjectsPage({ params }: ProjectsPageProps) {
         {/* Header */}
         <div className="space-y-4">
           <h1 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
-            Projects
+            {t("projects.title")}
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl">
-            A collection of projects I&apos;ve worked on, showcasing various
-            technologies and approaches to problem-solving.
+            {t("projects.description")}
           </p>
           {projects.length > 0 && (
             <p className="text-sm text-muted-foreground">
-              Showing {projects.length} project
-              {projects.length !== 1 ? "s" : ""}
+              {t("projects.showing_other", { count: projects.length })}
             </p>
           )}
         </div>
@@ -59,7 +63,11 @@ export default async function ProjectsPage({ params }: ProjectsPageProps) {
         {projects.length > 0 ? (
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {projects.map(project => (
-              <ProjectCard key={project.slug} project={project} />
+              <ProjectCard
+                key={project.slug}
+                project={project}
+                locale={locale}
+              />
             ))}
           </div>
         ) : (
@@ -68,10 +76,11 @@ export default async function ProjectsPage({ params }: ProjectsPageProps) {
             <div className="w-16 h-16 bg-muted rounded-full flex items-center justify-center">
               <span className="text-2xl">📁</span>
             </div>
-            <h3 className="text-xl font-semibold">No Projects Found</h3>
+            <h3 className="text-xl font-semibold">
+              {t("projects.empty.title")}
+            </h3>
             <p className="text-muted-foreground max-w-md">
-              It looks like there are no projects to display at the moment.
-              Check back later for updates!
+              {t("projects.empty.description")}
             </p>
           </div>
         )}

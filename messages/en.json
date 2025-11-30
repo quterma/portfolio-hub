@@ -9,13 +9,98 @@
     "about": "About",
     "contact": "Contact"
   },
-  "cta": {
-    "repo": "View Repository",
-    "demo": "View Demo"
-  },
   "common": {
     "pageNotFound": "Page Not Found",
     "pageNotFoundDescription": "The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.",
-    "goHome": "Go Back Home"
+    "goHome": "Go Back Home",
+    "error": "Something went wrong!",
+    "tryAgain": "Try again",
+    "loading": "Loading…",
+    "noData": "Nothing to display yet.",
+    "language": "Language",
+    "close": "Close"
+  },
+  "projects": {
+    "title": "Projects",
+    "description": "A collection of projects I've worked on, showcasing various technologies and approaches to problem-solving.",
+    "showing_one": "Showing {count} project",
+    "showing_other": "Showing {count} projects",
+    "empty": {
+      "title": "No Projects Found",
+      "description": "It looks like there are no projects to display at the moment. Check back later for updates!"
+    },
+    "card": {
+      "viewDetails": "View Details"
+    }
+  },
+  "project": {
+    "backToProjects": "Back to Projects",
+    "links": {
+      "demo": "Live Demo",
+      "source": "Source Code"
+    },
+    "sections": {
+      "about": "About This Project",
+      "screenshots": "Screenshots",
+      "technologies": "Technologies",
+      "tags": "Tags",
+      "info": "Project Info"
+    },
+    "labels": {
+      "year": "Year:",
+      "status": "Status:",
+      "featured": "Featured:"
+    },
+    "status": {
+      "completed": "Completed",
+      "in-progress": "In Progress",
+      "planned": "Planned",
+      "archived": "Archived"
+    },
+    "featured": "Featured",
+    "featuredYes": "Yes"
+  },
+  "about": {
+    "title": "About Me",
+    "intro": "Welcome to my portfolio! I'm a passionate developer focused on creating innovative solutions and building exceptional user experiences.",
+    "sections": {
+      "background": "Background",
+      "skills": "Skills"
+    },
+    "placeholders": {
+      "background": "More details about my background and journey will be added here.",
+      "skills": "Technical skills and expertise will be showcased here."
+    }
+  },
+  "contact": {
+    "title": "Contact",
+    "intro": "I'm always interested in new opportunities and collaborations. Feel free to reach out!",
+    "getInTouch": "Get in Touch",
+    "letsConnect": "Let's Connect",
+    "connectDescription": "I'm open to discussing new projects, creative ideas, or opportunities to collaborate.",
+    "formPlaceholder": "Contact form and information will be added here.",
+    "form": {
+      "nameLabel": "Name",
+      "emailLabel": "Email",
+      "messageLabel": "Message",
+      "namePlaceholder": "Your name",
+      "emailPlaceholder": "you@example.com",
+      "messagePlaceholder": "How can I help?",
+      "submit": "Send Message"
+    },
+    "messages": {
+      "success": "Your message has been sent. Thank you!",
+      "error": "Something went wrong while sending your message. Please try again.",
+      "validation": {
+        "required": "This field is required",
+        "emailInvalid": "Please enter a valid email address",
+        "messageTooShort": "Please provide a bit more detail"
+      }
+    },
+    "buttons": {
+      "email": "Email",
+      "linkedin": "LinkedIn",
+      "github": "GitHub"
+    }
   }
 }

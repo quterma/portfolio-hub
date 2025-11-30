@@ -3,28 +3,41 @@ import { Project } from "@/types/project"
 import { Button } from "@/components/ui/button"
 import { ExternalLink } from "lucide-react"
 import { siGithub } from "simple-icons"
+import { getLocalizedText } from "@/lib/i18n-utils"
+import { useTranslations } from "next-intl"
 
 type ProjectCardProps = {
   project: Project
+  locale: string
 }
 
-export function ProjectCard({ project }: ProjectCardProps) {
+export function ProjectCard({ project, locale }: ProjectCardProps) {
+  const t = useTranslations()
+
+  const title = getLocalizedText(project.title, locale)
+  const summary = getLocalizedText(project.summary, locale)
+  const tags = project.tags ?? []
+  const year = project.year
+  const status = project.status
+
   return (
     <div className="group relative overflow-hidden rounded-lg border bg-background p-6 transition-all duration-200 hover:shadow-lg hover:border-ring/20">
       {/* Status and Year Badge */}
       <div className="flex items-center justify-between mb-4">
-        <span
-          className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
-            project.status === "completed"
-              ? "bg-green-100 text-green-800 dark:bg-green-900/20 dark:text-green-400"
-              : project.status === "in-progress"
-                ? "bg-blue-100 text-blue-800 dark:bg-blue-900/20 dark:text-blue-400"
-                : "bg-gray-100 text-gray-800 dark:bg-gray-900/20 dark:text-gray-400"
-          }`}
-        >
-          {project.status}
-        </span>
-        <span className="text-sm text-muted-foreground">{project.year}</span>
+        {status && (
+          <span
+            className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
+              status === "completed"
+                ? "bg-green-100 text-green-800 dark:bg-green-900/20 dark:text-green-400"
+                : status === "in-progress"
+                  ? "bg-blue-100 text-blue-800 dark:bg-blue-900/20 dark:text-blue-400"
+                  : "bg-gray-100 text-gray-800 dark:bg-gray-900/20 dark:text-gray-400"
+            }`}
+          >
+            {t(`project.status.${status}`)}
+          </span>
+        )}
+        {year && <span className="text-sm text-muted-foreground">{year}</span>}
       </div>
 
       {/* Project Title */}
@@ -33,18 +46,16 @@ export function ProjectCard({ project }: ProjectCardProps) {
           href={`/project/${project.slug}`}
           className="after:absolute after:inset-0"
         >
-          {project.title}
+          {title}
         </Link>
       </h3>
 
       {/* Project Summary */}
-      <p className="text-muted-foreground mb-4 line-clamp-3">
-        {project.summary}
-      </p>
+      <p className="text-muted-foreground mb-4 line-clamp-3">{summary}</p>
 
       {/* Tags */}
       <div className="flex flex-wrap gap-2 mb-4">
-        {project.tags.slice(0, 3).map(tag => (
+        {tags.slice(0, 3).map(tag => (
           <span
             key={tag}
             className="inline-flex items-center px-2 py-1 rounded-md text-xs font-medium bg-secondary text-secondary-foreground"
@@ -52,9 +63,9 @@ export function ProjectCard({ project }: ProjectCardProps) {
             {tag}
           </span>
         ))}
-        {project.tags.length > 3 && (
+        {tags.length > 3 && (
           <span className="inline-flex items-center px-2 py-1 rounded-md text-xs font-medium text-muted-foreground">
-            +{project.tags.length - 3} more
+            +{tags.length - 3} more
           </span>
         )}
       </div>
@@ -62,9 +73,11 @@ export function ProjectCard({ project }: ProjectCardProps) {
       {/* Action Links */}
       <div className="flex items-center gap-2 mt-auto relative z-10">
         <Button asChild size="sm" variant="outline">
-          <Link href={`/project/${project.slug}`}>View Details</Link>
+          <Link href={`/project/${project.slug}`}>
+            {t("projects.card.viewDetails")}
+          </Link>
         </Button>
-        {project.urls.demo && (
+        {project.urls?.demo && (
           <Button asChild size="sm" variant="ghost">
             <Link
               href={project.urls.demo}
@@ -75,7 +88,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
             </Link>
           </Button>
         )}
-        {project.urls.github && (
+        {project.urls?.github && (
           <Button asChild size="sm" variant="ghost">
             <Link
               href={project.urls.github}

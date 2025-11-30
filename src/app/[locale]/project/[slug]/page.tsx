@@ -6,7 +6,9 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Separator } from "@/components/ui/separator"
 import { getProjectBySlug } from "@/lib/projects"
-import { ArrowLeft, ExternalLink, Globe } from "lucide-react"
+import { getLocalizedText } from "@/lib/i18n-utils"
+import { getTranslations } from "next-intl/server"
+import { ArrowLeft, Globe } from "lucide-react"
 import { siGithub } from "simple-icons"
 
 type ProjectPageProps = {
@@ -20,12 +22,17 @@ type ProjectPageProps = {
 // Removed generateMetadata to keep this page focused on data loading and rendering
 
 export default async function ProjectPage({ params }: ProjectPageProps) {
-  const { locale, slug } = await params // eslint-disable-line @typescript-eslint/no-unused-vars
+  const { locale, slug } = await params
+  const t = await getTranslations({ locale })
   const project = getProjectBySlug(slug)
 
   if (!project) {
     notFound()
   }
+
+  const title = getLocalizedText(project.title, locale)
+  const summary = getLocalizedText(project.summary, locale)
+  const description = getLocalizedText(project.description, locale)
 
   const statusColors = {
     completed:
@@ -46,17 +53,17 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           <Button variant="outline" size="sm" asChild>
             <Link href="/projects" className="flex items-center space-x-2">
               <ArrowLeft className="h-4 w-4" />
-              <span>Back to Projects</span>
+              <span>{t("project.backToProjects")}</span>
             </Link>
           </Button>
         </div>
 
         {/* Hero Image */}
-        {project.images.hero && (
+        {project.images?.cover && (
           <div className="relative aspect-video overflow-hidden rounded-lg border">
             <Image
-              src={project.images.hero}
-              alt={`${project.title} hero image`}
+              src={project.images.cover}
+              alt={`${title} cover image`}
               fill
               className="object-cover"
               priority
@@ -70,26 +77,32 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             <div className="space-y-2">
               <div className="flex items-center space-x-3">
                 <h1 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
-                  {project.title}
+                  {title}
                 </h1>
-                <span className="text-lg text-muted-foreground">
-                  {project.year}
-                </span>
+                {project.year && (
+                  <span className="text-lg text-muted-foreground">
+                    {project.year}
+                  </span>
+                )}
               </div>
               <div className="flex items-center space-x-2">
-                <Badge
-                  className={statusColors[project.status]}
-                  variant="secondary"
-                >
-                  {project.status}
-                </Badge>
-                {project.featured && <Badge variant="outline">Featured</Badge>}
+                {project.status && (
+                  <Badge
+                    className={statusColors[project.status]}
+                    variant="secondary"
+                  >
+                    {t(`project.status.${project.status}`)}
+                  </Badge>
+                )}
+                {project.featured && (
+                  <Badge variant="outline">{t("project.featured")}</Badge>
+                )}
               </div>
             </div>
 
             {/* External Links */}
             <div className="flex flex-wrap gap-2">
-              {project.urls.demo && (
+              {project.urls?.demo && (
                 <Button asChild variant="default">
                   <Link
                     href={project.urls.demo}
@@ -97,11 +110,11 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                     rel="noopener noreferrer"
                   >
                     <Globe className="h-4 w-4 mr-2" />
-                    Live Demo
+                    {t("project.links.demo")}
                   </Link>
                 </Button>
               )}
-              {project.urls.github && (
+              {project.urls?.github && (
                 <Button asChild variant="outline">
                   <Link
                     href={project.urls.github}
@@ -116,19 +129,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                     >
                       <path d={siGithub.path} />
                     </svg>
-                    Source Code
-                  </Link>
-                </Button>
-              )}
-              {project.urls.documentation && (
-                <Button asChild variant="outline">
-                  <Link
-                    href={project.urls.documentation}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <ExternalLink className="h-4 w-4 mr-2" />
-                    Documentation
+                    {t("project.links.source")}
                   </Link>
                 </Button>
               )}
@@ -137,7 +138,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
           {/* Summary */}
           <p className="text-lg text-muted-foreground leading-relaxed">
-            {project.summary}
+            {summary}
           </p>
         </div>
 
@@ -148,57 +149,68 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           {/* Main Content */}
           <div className="lg:col-span-2 space-y-8">
             {/* Description */}
-            <div className="space-y-4">
-              <h2 className="text-2xl font-semibold">About This Project</h2>
-              <div className="prose prose-gray dark:prose-invert max-w-none">
-                <p className="text-muted-foreground leading-relaxed">
-                  {project.description}
-                </p>
+            {description && (
+              <div className="space-y-4">
+                <h2 className="text-2xl font-semibold">
+                  {t("project.sections.about")}
+                </h2>
+                <div className="prose prose-gray dark:prose-invert max-w-none">
+                  <p className="text-muted-foreground leading-relaxed">
+                    {description}
+                  </p>
+                </div>
               </div>
-            </div>
+            )}
 
             {/* Screenshots Gallery */}
-            {project.images.screenshots &&
-              project.images.screenshots.length > 0 && (
-                <div className="space-y-4">
-                  <h2 className="text-2xl font-semibold">Screenshots</h2>
-                  <div className="grid gap-4 sm:grid-cols-2">
-                    {project.images.screenshots.map((screenshot, index) => (
-                      <div
-                        key={index}
-                        className="relative aspect-video overflow-hidden rounded-lg border"
-                      >
-                        <Image
-                          src={screenshot}
-                          alt={`${project.title} screenshot ${index + 1}`}
-                          fill
-                          className="object-cover transition-transform hover:scale-105"
-                        />
-                      </div>
-                    ))}
-                  </div>
+            {project.images?.gallery && project.images.gallery.length > 0 && (
+              <div className="space-y-4">
+                <h2 className="text-2xl font-semibold">
+                  {t("project.sections.screenshots")}
+                </h2>
+                <div className="grid gap-4 sm:grid-cols-2">
+                  {project.images.gallery.map((screenshot, index) => (
+                    <div
+                      key={index}
+                      className="relative aspect-video overflow-hidden rounded-lg border"
+                    >
+                      <Image
+                        src={screenshot}
+                        alt={`${title} screenshot ${index + 1}`}
+                        fill
+                        className="object-cover transition-transform hover:scale-105"
+                      />
+                    </div>
+                  ))}
                 </div>
-              )}
+              </div>
+            )}
           </div>
 
           {/* Sidebar */}
           <div className="space-y-6">
             {/* Technologies */}
-            <div className="space-y-3">
-              <h3 className="text-lg font-semibold">Technologies</h3>
-              <div className="flex flex-wrap gap-2">
-                {project.tech.map(tech => (
-                  <Badge key={tech} variant="secondary">
-                    {tech}
-                  </Badge>
-                ))}
+            {project.tech && project.tech.length > 0 && (
+              <div className="space-y-3">
+                <h3 className="text-lg font-semibold">
+                  {t("project.sections.technologies")}
+                </h3>
+                <div className="flex flex-wrap gap-2">
+                  {project.tech.map(tech => (
+                    <Badge key={tech} variant="secondary">
+                      {tech}
+                    </Badge>
+                  ))}
+                </div>
               </div>
-            </div>
+            )}
 
             {/* Tags */}
             {project.tags && project.tags.length > 0 && (
               <div className="space-y-3">
-                <h3 className="text-lg font-semibold">Tags</h3>
+                <h3 className="text-lg font-semibold">
+                  {t("project.sections.tags")}
+                </h3>
                 <div className="flex flex-wrap gap-2">
                   {project.tags.map(tag => (
                     <Badge key={tag} variant="outline">
@@ -211,20 +223,32 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
             {/* Project Info */}
             <div className="space-y-3">
-              <h3 className="text-lg font-semibold">Project Info</h3>
+              <h3 className="text-lg font-semibold">
+                {t("project.sections.info")}
+              </h3>
               <div className="space-y-2 text-sm">
-                <div className="flex justify-between">
-                  <span className="text-muted-foreground">Year:</span>
-                  <span>{project.year}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-muted-foreground">Status:</span>
-                  <span className="capitalize">{project.status}</span>
-                </div>
+                {project.year && (
+                  <div className="flex justify-between">
+                    <span className="text-muted-foreground">
+                      {t("project.labels.year")}
+                    </span>
+                    <span>{project.year}</span>
+                  </div>
+                )}
+                {project.status && (
+                  <div className="flex justify-between">
+                    <span className="text-muted-foreground">
+                      {t("project.labels.status")}
+                    </span>
+                    <span>{t(`project.status.${project.status}`)}</span>
+                  </div>
+                )}
                 {project.featured && (
                   <div className="flex justify-between">
-                    <span className="text-muted-foreground">Featured:</span>
-                    <span>Yes</span>
+                    <span className="text-muted-foreground">
+                      {t("project.labels.featured")}
+                    </span>
+                    <span>{t("project.featuredYes")}</span>
                   </div>
                 )}
               </div>

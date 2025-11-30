@@ -1,8 +1,17 @@
 import { Project, ProjectFilter } from "@/types/project"
+import { ProjectsSchema } from "@/lib/schemas"
 import projectsData from "../../data/projects.json"
 
-// Import the JSON data with proper typing
-const projects: Project[] = projectsData as Project[]
+// Validate and import the JSON data with Zod schema
+let projects: Project[] = []
+
+try {
+  projects = ProjectsSchema.parse(projectsData)
+} catch (error) {
+  console.error("Failed to validate projects data:", error)
+  // Fallback to empty array if validation fails
+  projects = []
+}
 
 /**
  * Get all projects
@@ -31,13 +40,13 @@ export function getProjects(filter?: ProjectFilter): Project[] {
 
   if (filter?.tags && filter.tags.length > 0) {
     filteredProjects = filteredProjects.filter(project =>
-      filter.tags!.some(tag => project.tags.includes(tag))
+      filter.tags!.some(tag => project.tags?.includes(tag))
     )
   }
 
   if (filter?.tech && filter.tech.length > 0) {
     filteredProjects = filteredProjects.filter(project =>
-      filter.tech!.some(tech => project.tech.includes(tech))
+      filter.tech!.some(tech => project.tech?.includes(tech))
     )
   }
 
@@ -78,7 +87,7 @@ export function getProjectsByStatus(status: Project["status"]): Project[] {
 export function getAllTags(): string[] {
   const tagSet = new Set<string>()
   projects.forEach(project => {
-    project.tags.forEach(tag => tagSet.add(tag))
+    project.tags?.forEach(tag => tagSet.add(tag))
   })
   return Array.from(tagSet).sort()
 }
@@ -89,7 +98,7 @@ export function getAllTags(): string[] {
 export function getAllTechnologies(): string[] {
   const techSet = new Set<string>()
   projects.forEach(project => {
-    project.tech.forEach(tech => techSet.add(tech))
+    project.tech?.forEach(tech => techSet.add(tech))
   })
   return Array.from(techSet).sort()
 }
@@ -100,7 +109,9 @@ export function getAllTechnologies(): string[] {
 export function getProjectYears(): number[] {
   const yearSet = new Set<number>()
   projects.forEach(project => {
-    yearSet.add(project.year)
+    if (project.year) {
+      yearSet.add(project.year)
+    }
   })
   return Array.from(yearSet).sort((a, b) => b - a)
 }

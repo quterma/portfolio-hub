@@ -1,9 +1,15 @@
 [
   {
     "slug": "progis-test",
-    "title": "Progis Test",
-    "summary": "A comprehensive testing application built with modern web technologies to demonstrate full-stack development capabilities.",
-    "description": "This project showcases advanced frontend and backend integration with real-time features, responsive design, and robust testing infrastructure. Built as a demonstration of technical proficiency and problem-solving abilities.",
+    "title": {
+      "en": "Progis Test"
+    },
+    "summary": {
+      "en": "A comprehensive testing application built with modern web technologies to demonstrate full-stack development capabilities."
+    },
+    "description": {
+      "en": "This project showcases advanced frontend and backend integration with real-time features, responsive design, and robust testing infrastructure. Built as a demonstration of technical proficiency and problem-solving abilities."
+    },
     "year": 2024,
     "status": "completed",
     "featured": true,
@@ -20,12 +26,11 @@
     ],
     "urls": {
       "demo": "https://progis-test-demo.vercel.app",
-      "github": "https://github.com/username/progis-test",
-      "documentation": "https://progis-test-docs.netlify.app"
+      "github": "https://github.com/username/progis-test"
     },
     "images": {
-      "hero": "/images/projects/progis-test/hero.jpg",
-      "screenshots": [
+      "cover": "/images/projects/progis-test/hero.jpg",
+      "gallery": [
         "/images/projects/progis-test/dashboard.jpg",
         "/images/projects/progis-test/mobile.jpg",
         "/images/projects/progis-test/admin.jpg"

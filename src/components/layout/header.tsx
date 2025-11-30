@@ -2,35 +2,37 @@
 
 import { Link } from "@/i18n/navigation"
 import { usePathname } from "next/navigation"
+import { useTranslations } from "next-intl"
 import { siteConfig } from "@/lib/config"
 import { Container } from "@/components/ui/container"
 import { Home, FolderOpen, User, Mail } from "lucide-react"
 
-const navigationItems = [
-  {
-    href: siteConfig.routes.home,
-    label: "Home",
-    icon: Home,
-  },
-  {
-    href: siteConfig.routes.projects,
-    label: "Projects",
-    icon: FolderOpen,
-  },
-  {
-    href: siteConfig.routes.about,
-    label: "About",
-    icon: User,
-  },
-  {
-    href: siteConfig.routes.contact,
-    label: "Contact",
-    icon: Mail,
-  },
-]
-
 export function Header() {
   const pathname = usePathname()
+  const t = useTranslations()
+
+  const navigationItems = [
+    {
+      href: siteConfig.routes.home,
+      label: t("nav.home"),
+      icon: Home,
+    },
+    {
+      href: siteConfig.routes.projects,
+      label: t("nav.projects"),
+      icon: FolderOpen,
+    },
+    {
+      href: siteConfig.routes.about,
+      label: t("nav.about"),
+      icon: User,
+    },
+    {
+      href: siteConfig.routes.contact,
+      label: t("nav.contact"),
+      icon: Mail,
+    },
+  ]
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">

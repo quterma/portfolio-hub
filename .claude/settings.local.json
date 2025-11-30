@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pnpm lint:*)",
+      "Bash(pnpm tsc:*)",
+      "Bash(pnpm test:*)",
+      "Bash(pnpm build:*)",
+      "Bash(dir /b srcapp[locale]error.tsx srcapp[locale]loading.tsx srcapp[locale]projectsloading.tsx)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

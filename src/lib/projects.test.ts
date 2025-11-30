@@ -12,7 +12,7 @@ describe("Project Utilities", () => {
     const project = getProjectBySlug("progis-test")
     expect(project).toBeDefined()
     expect(project?.slug).toBe("progis-test")
-    expect(project?.title).toBe("Progis Test")
+    expect(project?.title.en).toBe("Progis Test")
   })
 
   it("should return null for non-existent project", () => {
