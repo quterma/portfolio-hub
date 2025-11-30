@@ -5,7 +5,9 @@
       "Bash(pnpm tsc:*)",
       "Bash(pnpm test:*)",
       "Bash(pnpm build:*)",
-      "Bash(dir /b srcapp[locale]error.tsx srcapp[locale]loading.tsx srcapp[locale]projectsloading.tsx)"
+      "Bash(dir /b srcapp[locale]error.tsx srcapp[locale]loading.tsx srcapp[locale]projectsloading.tsx)",
+      "Bash(findstr:*)",
+      "Bash(dir:*)"
     ],
     "deny": [],
     "ask": []

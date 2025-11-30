@@ -6,7 +6,19 @@
 
 - Проверить i18n coverage для ключевых строк (nav, projects list/detail, about, contact).
 - Добавить Zod-схемы для projects data.
-- Убедиться, что все error/loading маршруты есть: `error.tsx`, `not-found.tsx`, `loading.tsx` (глобально и для projects).
+
+- error.tsx
+  Имеет смысл один глобальный: app/[locale]/error.tsx.
+  Специальные ошибки (например, нет проекта) уже покрываются notFound().
+
+- not-found.tsx
+  Держим:
+  app/[locale]/not-found.tsx — общая 404,
+  и используем notFound() в project detail для неизвестного slug.
+
+- Добавить в Header LanguageSwitcher (en/ru) с сохранением текущего пути.
+
+- Добавить ThemeToggle (light/dark, system) с хранением выбора в localStorage и классом data-theme/class="dark" на <html>.
 
 ## Stage 1 — Projects & Content
 
