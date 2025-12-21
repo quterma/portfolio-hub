@@ -13,7 +13,7 @@
       "en": "A comprehensive e-commerce demonstration built to showcase modern frontend architecture and development skills. Features include advanced filtering with search, category selection, price range slider, and rating filters with debounced input and URL state persistence. Implements full CRUD operations with React Hook Form, Zod validation, and optimistic UI updates. Includes favorites management with localStorage persistence, client-side pagination with mobile-optimized controls, and light/dark theme toggle with smooth transitions.",
       "ru": "Комплексная демонстрация интернет-магазина, созданная для демонстрации современной фронтенд-архитектуры и навыков разработки. Включает продвинутую фильтрацию с поиском, выбором категорий, слайдером диапазона цен и фильтрами рейтинга с отложенным вводом и сохранением состояния в URL. Реализует полный CRUD с React Hook Form, валидацией Zod и оптимистичными обновлениями UI. Включает управление избранным с сохранением в localStorage, клиентскую пагинацию с мобильными элементами управления и переключение светлой/тёмной темы с плавными переходами."
     },
-    "year": 2024,
+    "year": 2025,
     "status": "completed",
     "featured": true,
     "role": {
@@ -21,8 +21,8 @@
       "ru": "Full-stack Frontend разработчик"
     },
     "period": {
-      "en": "November 2024",
-      "ru": "Ноябрь 2024"
+      "en": "November 2025",
+      "ru": "Ноябрь 2025"
     },
     "highlights": [
       {
@@ -86,7 +86,7 @@
       "en": "A React + TypeScript demo application for displaying and querying geospatial data using WMS/OGC standards. Built with Vite and Leaflet, following clean architecture principles. Features include interactive Leaflet map with OpenStreetMap base tiles, configurable layer system, WMS GetFeatureInfo for feature identification with popup attributes, and smart hybrid identify that combines reverse geocoding via OpenStreetMap Nominatim on high zoom with country information via WMS on low zoom. Includes optional auto-center to user geolocation with fallback to USA.",
       "ru": "Демонстрационное приложение на React + TypeScript для отображения и запроса геопространственных данных с использованием стандартов WMS/OGC. Построено на Vite и Leaflet с соблюдением принципов чистой архитектуры. Включает интерактивную карту Leaflet с базовыми тайлами OpenStreetMap, настраиваемую систему слоёв, WMS GetFeatureInfo для идентификации объектов с всплывающими атрибутами и умную гибридную идентификацию, объединяющую обратное геокодирование через OpenStreetMap Nominatim на высоком зуме с информацией о стране через WMS на низком зуме. Включает опциональное автоцентрирование на геолокацию пользователя с откатом на США."
     },
-    "year": 2024,
+    "year": 2025,
     "status": "in-progress",
     "featured": false,
     "role": {
@@ -94,8 +94,8 @@
       "ru": "Frontend разработчик"
     },
     "period": {
-      "en": "October - November 2024",
-      "ru": "Октябрь - Ноябрь 2024"
+      "en": "October - November 2025",
+      "ru": "Октябрь - Ноябрь 2025"
     },
     "highlights": [
       {
@@ -143,7 +143,7 @@
       "en": "A lightweight mobile trading widget designed as an embeddable component. Built with minimal Feature-Sliced Design architecture for a clean, modular structure. Features wallet connection management with mock wallet state, real-time price charts powered by Recharts displaying 24-hour price data, and a mobile-first responsive design optimized for embedding. All state management is handled through React hooks without external state managers, following public API pattern with index.ts exports and path aliases for clean imports.",
       "ru": "Легковесный мобильный виджет для трейдинга, разработанный как встраиваемый компонент. Построен с минимальной архитектурой Feature-Sliced Design для чистой модульной структуры. Включает управление подключением кошелька с моковым состоянием, графики цен в реальном времени на базе Recharts с отображением данных за 24 часа и мобильный адаптивный дизайн, оптимизированный для встраивания. Всё управление состоянием реализовано через хуки React без внешних стейт-менеджеров, следуя паттерну публичного API с экспортами через index.ts и алиасами путей для чистых импортов."
     },
-    "year": 2024,
+    "year": 2025,
     "status": "in-progress",
     "featured": false,
     "role": {
@@ -151,8 +151,8 @@
       "ru": "Frontend разработчик"
     },
     "period": {
-      "en": "November 2024",
-      "ru": "Ноябрь 2024"
+      "en": "November 2025",
+      "ru": "Ноябрь 2025"
     },
     "highlights": [
       {
@@ -177,8 +177,74 @@
       "Recharts",
       "Vitest"
     ],
+    "urls": {
+      "github": "https://github.com/quterma/trading-mini-app"
+    },
     "images": {
       "cover": "/projects/trading-mini-app/cover.png"
+    }
+  },
+  {
+    "slug": "yokai-monitor",
+    "title": {
+      "en": "Yokai Monitor",
+      "ru": "Монитор Ёкаев"
+    },
+    "summary": {
+      "en": "Real-time dashboard for monitoring spirit anomalies with SSE updates and optimistic captures",
+      "ru": "Дашборд реального времени для мониторинга аномалий духов с SSE обновлениями и оптимистичными захватами"
+    },
+    "description": {
+      "en": "A real-time monitoring dashboard for tracking spirit anomalies across Tokyo districts. Built with strict Feature-Sliced Design architecture and Server-Sent Events for live threat updates. Features interactive spirit cards displaying threat levels with color-coded indicators, live summary statistics showing threat distribution and active/captured counts, and capture functionality with optimistic updates and 30% simulated error rate with proper rollback. Real-time threat level changes are delivered via SSE every 5 seconds with smooth CSS transitions. All data is validated with Zod at API boundaries, and the application uses TanStack Query for state management with automatic cache updates on SSE events.",
+      "ru": "Дашборд для мониторинга аномалий духов в районах Токио в реальном времени. Построен на строгой архитектуре Feature-Sliced Design и Server-Sent Events для живых обновлений угроз. Включает интерактивные карточки духов с цветовыми индикаторами уровней угрозы, живую сводную статистику распределения угроз и подсчёта активных/пойманных, а также функцию захвата с оптимистичными обновлениями и симуляцией 30% ошибок с корректным откатом. Изменения уровня угрозы в реальном времени доставляются через SSE каждые 5 секунд с плавными CSS-переходами. Все данные валидируются Zod на границах API, приложение использует TanStack Query для управления состоянием с автоматическими обновлениями кеша при SSE событиях."
+    },
+    "year": 2025,
+    "status": "completed",
+    "featured": true,
+    "role": {
+      "en": "Frontend Developer",
+      "ru": "Frontend разработчик"
+    },
+    "period": {
+      "en": "December 2025",
+      "ru": "Декабрь 2025"
+    },
+    "highlights": [
+      {
+        "en": "Strict Feature-Sliced Design architecture with layer isolation",
+        "ru": "Строгая архитектура Feature-Sliced Design с изоляцией слоёв"
+      },
+      {
+        "en": "Server-Sent Events for real-time threat updates with auto-reconnect",
+        "ru": "Server-Sent Events для обновлений угроз в реальном времени с авто-переподключением"
+      },
+      {
+        "en": "Optimistic updates with rollback on error simulation",
+        "ru": "Оптимистичные обновления с откатом при симуляции ошибок"
+      },
+      {
+        "en": "SCSS Modules with CSS custom properties and smooth transitions",
+        "ru": "SCSS Modules с CSS custom properties и плавными переходами"
+      }
+    ],
+    "tags": ["real-time", "monitoring", "sse", "frontend", "dashboard"],
+    "tech": [
+      "Next.js 16",
+      "React 19",
+      "TypeScript 5",
+      "TanStack Query 5",
+      "Zod",
+      "SCSS Modules",
+      "Server-Sent Events",
+      "Docker",
+      "Docker Compose"
+    ],
+    "urls": {
+      "demo": "https://yokai-monitor.vercel.app",
+      "github": "https://github.com/quterma/yokai-monitor"
+    },
+    "images": {
+      "cover": "/projects/yokai-monitor/cover.png"
     }
   }
 ]
