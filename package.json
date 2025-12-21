@@ -4,8 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "dev:clean": "pnpm kill-ports && next dev",
     "build": "next build",
     "start": "next start",
+    "kill-ports": "npx kill-port 3000 3001",
     "lint": "eslint",
     "lint:fix": "eslint --fix",
     "format": "prettier --write .",

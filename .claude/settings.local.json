@@ -10,7 +10,8 @@
       "Bash(dir:*)",
       "Bash(pnpm tsc:check:*)",
       "Bash(pnpm test:unit:*)",
-      "Bash(identify:*)"
+      "Bash(identify:*)",
+      "Bash(test:*)"
     ],
     "deny": [],
     "ask": []
