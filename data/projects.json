@@ -6,12 +6,12 @@
       "ru": "Витрина Товаров"
     },
     "summary": {
-      "en": "Modern e-commerce demo with advanced filtering, CRUD operations, and responsive UI",
-      "ru": "Современное демо интернет-магазина с продвинутой фильтрацией, CRUD операциями и адаптивным UI"
+      "en": "Technical assessment: e-commerce demo with advanced filtering, product CRUD, and a production-like UX",
+      "ru": "Тестовое приложение: демо интернет-магазина с продвинутыми фильтрами, CRUD товаров и production-like UX"
     },
     "description": {
-      "en": "A comprehensive e-commerce demonstration built to showcase modern frontend architecture and development skills. Features include advanced filtering with search, category selection, price range slider, and rating filters with debounced input and URL state persistence. Implements full CRUD operations with React Hook Form, Zod validation, and optimistic UI updates. Includes favorites management with localStorage persistence, client-side pagination with mobile-optimized controls, and light/dark theme toggle with smooth transitions.",
-      "ru": "Комплексная демонстрация интернет-магазина, созданная для демонстрации современной фронтенд-архитектуры и навыков разработки. Включает продвинутую фильтрацию с поиском, выбором категорий, слайдером диапазона цен и фильтрами рейтинга с отложенным вводом и сохранением состояния в URL. Реализует полный CRUD с React Hook Form, валидацией Zod и оптимистичными обновлениями UI. Включает управление избранным с сохранением в localStorage, клиентскую пагинацию с мобильными элементами управления и переключение светлой/тёмной темы с плавными переходами."
+      "en": "Technical assessment / demo project showcasing modern frontend development practices in a realistic e-commerce domain. Users can browse products with advanced filtering, manage favorites, and perform full CRUD flows with fast feedback. Built with Feature-Sliced Design, accessibility-first components, and comprehensive testing (Vitest + Playwright).",
+      "ru": "Тестовое приложение (демо-проект), показывающее современные практики фронтенд-разработки на примере e-commerce. Пользователь может просматривать товары с продвинутой фильтрацией, управлять избранным и выполнять полный CRUD с быстрой обратной связью. Архитектура Feature-Sliced Design, компоненты с приоритетом доступности и комплексные тесты (Vitest + Playwright)."
     },
     "year": 2025,
     "status": "completed",
@@ -79,12 +79,12 @@
       "ru": "Картографическое Приложение Progis"
     },
     "summary": {
-      "en": "Lightweight geospatial application with WMS/OGC integration and smart hybrid identify system",
-      "ru": "Легковесное геопространственное приложение с интеграцией WMS/OGC и умной гибридной системой идентификации"
+      "en": "Technical assessment: interactive GIS demo with WMS layers, geospatial visualization, and smart location identification",
+      "ru": "Тестовое приложение: GIS-демо с WMS-слоями, визуализацией геоданных и умной идентификацией локаций"
     },
     "description": {
-      "en": "A React + TypeScript demo application for displaying and querying geospatial data using WMS/OGC standards. Built with Vite and Leaflet, following clean architecture principles. Features include interactive Leaflet map with OpenStreetMap base tiles, configurable layer system, WMS GetFeatureInfo for feature identification with popup attributes, and smart hybrid identify that combines reverse geocoding via OpenStreetMap Nominatim on high zoom with country information via WMS on low zoom. Includes optional auto-center to user geolocation with fallback to USA.",
-      "ru": "Демонстрационное приложение на React + TypeScript для отображения и запроса геопространственных данных с использованием стандартов WMS/OGC. Построено на Vite и Leaflet с соблюдением принципов чистой архитектуры. Включает интерактивную карту Leaflet с базовыми тайлами OpenStreetMap, настраиваемую систему слоёв, WMS GetFeatureInfo для идентификации объектов с всплывающими атрибутами и умную гибридную идентификацию, объединяющую обратное геокодирование через OpenStreetMap Nominatim на высоком зуме с информацией о стране через WMS на низком зуме. Включает опциональное автоцентрирование на геолокацию пользователя с откатом на США."
+      "en": "Technical assessment / demo project focused on interactive mapping and geospatial data visualization. Combines WMS/OGC layers with a modern React + TypeScript stack, including layer management and smart identification that adapts to zoom level. Built with a clean, modular structure and extensive JSDoc documentation for maintainability.",
+      "ru": "Тестовое приложение (демо-проект), сфокусированное на интерактивных картах и визуализации геоданных. Сочетает WMS/OGC-слои с современным стеком React + TypeScript: управление слоями и умная идентификация, адаптирующаяся к уровню зума. Чистая модульная структура и подробная JSDoc-документация для удобной поддержки."
     },
     "year": 2025,
     "status": "in-progress",
@@ -126,7 +126,12 @@
       "github": "https://github.com/quterma/progis-map-app"
     },
     "images": {
-      "cover": "/projects/progis-map-app/cover.png"
+      "cover": "/projects/progis-map-app/cover.png",
+      "gallery": [
+        "/projects/progis-map-app/landscape/1.png",
+        "/projects/progis-map-app/landscape/2.png"
+      ],
+      "mobileGallery": ["/projects/progis-map-app/vertical/1.png"]
     }
   },
   {
@@ -136,12 +141,12 @@
       "ru": "Мини-приложение для Трейдинга"
     },
     "summary": {
-      "en": "Mobile-first trading widget with wallet connection and real-time price charts",
-      "ru": "Мобильный виджет для трейдинга с подключением кошелька и графиками цен в реальном времени"
+      "en": "Technical assessment: embeddable mobile-first trading widget with wallet state and real-time price charts",
+      "ru": "Тестовое приложение: встраиваемый mobile-first виджет с состоянием кошелька и графиками цен в реальном времени"
     },
     "description": {
-      "en": "A lightweight mobile trading widget designed as an embeddable component. Built with minimal Feature-Sliced Design architecture for a clean, modular structure. Features wallet connection management with mock wallet state, real-time price charts powered by Recharts displaying 24-hour price data, and a mobile-first responsive design optimized for embedding. All state management is handled through React hooks without external state managers, following public API pattern with index.ts exports and path aliases for clean imports.",
-      "ru": "Легковесный мобильный виджет для трейдинга, разработанный как встраиваемый компонент. Построен с минимальной архитектурой Feature-Sliced Design для чистой модульной структуры. Включает управление подключением кошелька с моковым состоянием, графики цен в реальном времени на базе Recharts с отображением данных за 24 часа и мобильный адаптивный дизайн, оптимизированный для встраивания. Всё управление состоянием реализовано через хуки React без внешних стейт-менеджеров, следуя паттерну публичного API с экспортами через index.ts и алиасами путей для чистых импортов."
+      "en": "Technical assessment / demo project built as an embeddable mobile widget. Demonstrates a minimal Feature-Sliced Design setup, hook-based state management (no external store), and real-time charting with Recharts (24h data). Designed to be easy to embed and extend via a clean public API pattern (index exports + path aliases).",
+      "ru": "Тестовое приложение (демо-проект) в формате встраиваемого мобильного виджета. Демонстрирует минимальную архитектуру Feature-Sliced Design, управление состоянием на хуках (без внешнего стора) и графики в реальном времени на Recharts (данные за 24 часа). Дизайн рассчитан на встраивание и расширение через паттерн публичного API (экспорты через index + алиасы путей)."
     },
     "year": 2025,
     "status": "in-progress",
@@ -181,7 +186,8 @@
       "github": "https://github.com/quterma/trading-mini-app"
     },
     "images": {
-      "cover": "/projects/trading-mini-app/cover.png"
+      "cover": "/projects/trading-mini-app/cover.png",
+      "mobileGallery": ["/projects/trading-mini-app/vertical/1.png"]
     }
   },
   {
@@ -191,12 +197,12 @@
       "ru": "Монитор Ёкаев"
     },
     "summary": {
-      "en": "Real-time dashboard for monitoring spirit anomalies with SSE updates and optimistic captures",
-      "ru": "Дашборд реального времени для мониторинга аномалий духов с SSE обновлениями и оптимистичными захватами"
+      "en": "Technical assessment: real-time monitoring dashboard with SSE updates, optimistic actions, and resilience patterns",
+      "ru": "Тестовое приложение: real-time дашборд с SSE-обновлениями, оптимистичными действиями и паттернами устойчивости"
     },
     "description": {
-      "en": "A real-time monitoring dashboard for tracking spirit anomalies across Tokyo districts. Built with strict Feature-Sliced Design architecture and Server-Sent Events for live threat updates. Features interactive spirit cards displaying threat levels with color-coded indicators, live summary statistics showing threat distribution and active/captured counts, and capture functionality with optimistic updates and 30% simulated error rate with proper rollback. Real-time threat level changes are delivered via SSE every 5 seconds with smooth CSS transitions. All data is validated with Zod at API boundaries, and the application uses TanStack Query for state management with automatic cache updates on SSE events.",
-      "ru": "Дашборд для мониторинга аномалий духов в районах Токио в реальном времени. Построен на строгой архитектуре Feature-Sliced Design и Server-Sent Events для живых обновлений угроз. Включает интерактивные карточки духов с цветовыми индикаторами уровней угрозы, живую сводную статистику распределения угроз и подсчёта активных/пойманных, а также функцию захвата с оптимистичными обновлениями и симуляцией 30% ошибок с корректным откатом. Изменения уровня угрозы в реальном времени доставляются через SSE каждые 5 секунд с плавными CSS-переходами. Все данные валидируются Zod на границах API, приложение использует TanStack Query для управления состоянием с автоматическими обновлениями кеша при SSE событиях."
+      "en": "Technical assessment / demo project showcasing real-time UI synchronization and production-like resilience patterns. Built as a monitoring dashboard with Server-Sent Events, optimistic actions (with rollback on errors), and auto-reconnect connection management. Implemented with strict Feature-Sliced Design layering, typed event models, and Dockerized local setup.",
+      "ru": "Тестовое приложение (демо-проект), демонстрирующее синхронизацию UI в реальном времени и production-like паттерны устойчивости. Дашборд использует Server-Sent Events, оптимистичные действия (с откатом при ошибках) и авто-переподключение. Строгая слоистая архитектура Feature-Sliced Design, типизированные модели событий и Docker-окружение для локального запуска."
     },
     "year": 2025,
     "status": "completed",
@@ -244,7 +250,9 @@
       "github": "https://github.com/quterma/yokai-monitor"
     },
     "images": {
-      "cover": "/projects/yokai-monitor/cover.png"
+      "cover": "/projects/yokai-monitor/cover.png",
+      "gallery": ["/projects/yokai-monitor/landscape/1.png"],
+      "mobileGallery": ["/projects/yokai-monitor/vertical/1.png"]
     }
   }
 ]
