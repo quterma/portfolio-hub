@@ -61,11 +61,14 @@
       "github": "https://github.com/quterma/prod-show-case"
     },
     "images": {
-      "cover": "/projects/product-showcase/cover.jpg",
+      "cover": "/projects/product-showcase/cover.png",
       "gallery": [
-        "/projects/product-showcase/filters.jpg",
-        "/projects/product-showcase/crud.jpg",
-        "/projects/product-showcase/mobile.jpg"
+        "/projects/product-showcase/landscape/filters-dark.png",
+        "/projects/product-showcase/landscape/edit-form-light.png"
+      ],
+      "mobileGallery": [
+        "/projects/product-showcase/vertical/products-mobile-light.png",
+        "/projects/product-showcase/vertical/create-form-dark-mobile.png"
       ]
     }
   },
@@ -123,11 +126,7 @@
       "github": "https://github.com/quterma/progis-map-app"
     },
     "images": {
-      "cover": "/projects/progis-map-app/cover.jpg",
-      "gallery": [
-        "/projects/progis-map-app/identify.jpg",
-        "/projects/progis-map-app/layers.jpg"
-      ]
+      "cover": "/projects/progis-map-app/cover.png"
     }
   },
   {
@@ -179,11 +178,7 @@
       "Vitest"
     ],
     "images": {
-      "cover": "/projects/trading-mini-app/cover.jpg",
-      "gallery": [
-        "/projects/trading-mini-app/wallet.jpg",
-        "/projects/trading-mini-app/chart.jpg"
-      ]
+      "cover": "/projects/trading-mini-app/cover.png"
     }
   }
 ]

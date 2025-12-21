@@ -58,25 +58,14 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           </Button>
         </div>
 
-        {/* Hero Image */}
-        {project.images?.cover && (
-          <div className="relative aspect-video overflow-hidden rounded-lg border">
-            <Image
-              src={project.images.cover}
-              alt={`${title} cover image`}
-              fill
-              className="object-cover"
-              priority
-            />
-          </div>
-        )}
-
-        {/* Project Header */}
-        <div className="space-y-6">
-          <div className="flex flex-col space-y-4 sm:flex-row sm:items-start sm:justify-between sm:space-y-0">
+        {/* Hero Section with Cover */}
+        <div className="grid gap-6 lg:grid-cols-2">
+          {/* Left: Header, Links, Summary */}
+          <div className="space-y-6">
+            {/* Project Header */}
             <div className="space-y-2">
-              <div className="flex items-center space-x-3">
-                <h1 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
+              <div className="flex items-center flex-wrap gap-x-3 gap-y-2">
+                <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
                   {title}
                 </h1>
                 {project.year && (
@@ -134,58 +123,81 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 </Button>
               )}
             </div>
+
+            {/* Summary */}
+            <p className="text-lg text-muted-foreground leading-relaxed">
+              {summary}
+            </p>
+
+            {/* About This Project */}
+            {description && (
+              <div className="space-y-2">
+                <h2 className="text-xl font-semibold">
+                  {t("project.sections.about")}
+                </h2>
+                <p className="text-muted-foreground leading-relaxed">
+                  {description}
+                </p>
+              </div>
+            )}
           </div>
 
-          {/* Summary */}
-          <p className="text-lg text-muted-foreground leading-relaxed">
-            {summary}
-          </p>
+          {/* Right: Cover Image */}
+          {project.images?.cover && (
+            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-lg border">
+              <Image
+                src={project.images.cover}
+                alt={`${title} cover image`}
+                fill
+                className="object-cover"
+                priority
+              />
+            </div>
+          )}
         </div>
 
         <Separator />
 
-        {/* Project Details */}
-        <div className="grid gap-8 lg:grid-cols-3">
-          {/* Main Content */}
-          <div className="lg:col-span-2 space-y-8">
-            {/* Description */}
-            {description && (
-              <div className="space-y-4">
-                <h2 className="text-2xl font-semibold">
-                  {t("project.sections.about")}
-                </h2>
-                <div className="prose prose-gray dark:prose-invert max-w-none">
-                  <p className="text-muted-foreground leading-relaxed">
-                    {description}
-                  </p>
-                </div>
+        {/* Gallery and Sidebar */}
+        <div className="grid gap-8 lg:grid-cols-5">
+          {/* Screenshots Gallery - 4/5 width */}
+          {((project.images?.gallery && project.images.gallery.length > 0) ||
+            (project.images?.mobileGallery &&
+              project.images.mobileGallery.length > 0)) && (
+            <div className="lg:col-span-4 space-y-4">
+              <h2 className="text-2xl font-semibold">
+                {t("project.sections.screenshots")}
+              </h2>
+              <div className="grid gap-[3px] grid-cols-6 auto-rows-[200px] grid-flow-dense">
+                {project.images?.gallery?.map((screenshot, index) => (
+                  <div
+                    key={`desktop-${index}`}
+                    className="relative col-span-6 sm:col-span-4 row-span-2 overflow-hidden"
+                  >
+                    <Image
+                      src={screenshot}
+                      alt={`${title} screenshot ${index + 1}`}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                ))}
+                {project.images?.mobileGallery?.map((screenshot, index) => (
+                  <div
+                    key={`mobile-${index}`}
+                    className="relative col-span-3 sm:col-span-2 row-span-2 overflow-hidden"
+                  >
+                    <Image
+                      src={screenshot}
+                      alt={`${title} mobile screenshot ${index + 1}`}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                ))}
               </div>
-            )}
-
-            {/* Screenshots Gallery */}
-            {project.images?.gallery && project.images.gallery.length > 0 && (
-              <div className="space-y-4">
-                <h2 className="text-2xl font-semibold">
-                  {t("project.sections.screenshots")}
-                </h2>
-                <div className="grid gap-4 sm:grid-cols-2">
-                  {project.images.gallery.map((screenshot, index) => (
-                    <div
-                      key={index}
-                      className="relative aspect-video overflow-hidden rounded-lg border"
-                    >
-                      <Image
-                        src={screenshot}
-                        alt={`${title} screenshot ${index + 1}`}
-                        fill
-                        className="object-cover transition-transform hover:scale-105"
-                      />
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
-          </div>
+            </div>
+          )}
 
           {/* Sidebar */}
           <div className="space-y-6">
