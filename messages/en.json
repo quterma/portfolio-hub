@@ -9,6 +9,17 @@
     "about": "About",
     "contact": "Contact"
   },
+  "home": {
+    "hero": {
+      "name": "Daniel Shapiro",
+      "role": "Frontend / Fullstack Developer (frontend-oriented)",
+      "description": "I build production-ready frontend applications with React, TypeScript, and a strong focus on clean UI and maintainable architecture."
+    },
+    "cta": {
+      "projects": "View Projects",
+      "contact": "Get in Touch"
+    }
+  },
   "common": {
     "pageNotFound": "Page Not Found",
     "pageNotFoundDescription": "The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.",

@@ -18,18 +18,23 @@ export default async function Home({ params }: HomeProps) {
   return (
     <Container>
       <div className="flex flex-col items-center justify-center min-h-[calc(100vh-200px)] space-y-8 text-center">
-        <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl">
-          {t("meta.siteTitle")}
-        </h1>
-        <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl dark:text-gray-400">
-          {t("meta.siteDescription")}
+        <div className="space-y-4">
+          <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl">
+            {t("home.hero.name")}
+          </h1>
+          <p className="text-xl text-muted-foreground md:text-2xl">
+            {t("home.hero.role")}
+          </p>
+        </div>
+        <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
+          {t("home.hero.description")}
         </p>
         <div className="space-x-4">
           <Button asChild>
-            <Link href="/projects">{t("nav.projects")}</Link>
+            <Link href="/projects">{t("home.cta.projects")}</Link>
           </Button>
           <Button variant="outline" asChild>
-            <Link href="/about">{t("nav.about")}</Link>
+            <Link href="/contact">{t("home.cta.contact")}</Link>
           </Button>
         </div>
       </div>

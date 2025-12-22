@@ -11,63 +11,11 @@
 
 ---
 
-## Stage A — Projects Data & Content (Foundation)
-
-**Цель:**  
-Сделать данные проектов и контент demo-ready, без изменения UI.
-
-**Границы:**  
-— Работаем только с данными и контентом.  
-— UI, верстку и визуальную полировку не трогаем.  
-— EN обязательно, RU по возможности.
-
-**Process note:**  
-All changes in Stage A are completed in one logical commit.
-
-### Задачи
-
-- Привести `projects.json` в соответствие `ProjectSchema`.
-- Заполнить проекты:
-  - `prod-show-case` (completed, featured)
-  - `yokai-monitor` (completed)
-  - `progis-map-app` (in-progress)
-  - `trading-mini-app` (planned, minimal placeholder content allowed)
-- Для каждого проекта:
-  - `title`, `summary`, `description` (EN, RU optional)
-  - `status`, `year`, `tech`, `tags`
-  - `urls.demo`, `urls.github` (если применимо)
-  - `images.cover`, `images.gallery[]`
-- Проверить:
-  - корректное отображение `/projects`
-  - корректное отображение `/project/[slug]`
-  - работу Zod-валидации и fallback’ов
-- Провести self-review:
-  - видно ли 2–3 сильных проекта
-  - понятны ли статусы (completed / in-progress / planned)
-
-**DoD:**  
-Данные проектов полные, страницы list/detail не ломаются placeholder-проектами, контент готов к показу.
+## Stage A — Projects Data & Content (Foundation) - DONE
 
 ---
 
-## Stage B — Project Page Layout (Key UX Stage)
-
-**Цель:**  
-Сделать страницу проекта сильной, понятной и убедительной.
-
-### Задачи
-
-- Переработать layout `/project/[slug]` **в рамках существующих компонентов и дизайн-системы**:
-  - hero / title
-  - summary + description
-  - project facts (status, year, tech)
-  - gallery
-  - CTA (demo / github)
-- При необходимости слегка улучшить `/projects` list (без сложных фильтров).
-- Убедиться, что completed и in-progress визуально различимы.
-
-**DoD:**  
-Страница проекта выглядит как production-case и понятно рассказывает о проекте.
+## Stage B — Project Page Layout (Key UX Stage) - DONE
 
 ---
 

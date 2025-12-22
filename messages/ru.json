@@ -9,6 +9,17 @@
     "about": "О себе",
     "contact": "Контакты"
   },
+  "home": {
+    "hero": {
+      "name": "Даниэль Шапиро",
+      "role": "Frontend / Fullstack разработчик (frontend-oriented)",
+      "description": "Я разрабатываю продакшен-приложения на React и TypeScript с фокусом на чистый UI и поддерживаемую архитектуру."
+    },
+    "cta": {
+      "projects": "Смотреть проекты",
+      "contact": "Связаться"
+    }
+  },
   "common": {
     "pageNotFound": "Страница не найдена",
     "pageNotFoundDescription": "Страница, которую вы ищете, могла быть удалена, переименована или временно недоступна.",
