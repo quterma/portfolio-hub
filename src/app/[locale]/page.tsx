@@ -17,16 +17,16 @@ export default async function Home({ params }: HomeProps) {
 
   return (
     <Container>
-      <div className="flex flex-col items-center justify-center min-h-[calc(100vh-200px)] space-y-8 text-center">
+      <div className="flex flex-col items-center justify-center space-y-6 py-12 text-center sm:space-y-8 sm:py-16">
         <div className="space-y-4">
           <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl">
             {t("home.hero.name")}
           </h1>
-          <p className="text-xl text-muted-foreground md:text-2xl">
+          <p className="mx-auto max-w-[28rem] text-balance text-xl text-muted-foreground sm:max-w-none md:text-2xl">
             {t("home.hero.role")}
           </p>
         </div>
-        <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
+        <p className="mx-auto max-w-[700px] px-4 text-muted-foreground leading-relaxed sm:px-0 md:text-xl">
           {t("home.hero.description")}
         </p>
         <div className="space-x-4">
