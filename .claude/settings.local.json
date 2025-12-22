@@ -11,7 +11,8 @@
       "Bash(pnpm tsc:check:*)",
       "Bash(pnpm test:unit:*)",
       "Bash(identify:*)",
-      "Bash(test:*)"
+      "Bash(test:*)",
+      "Bash(pnpm lint:fix:*)"
     ],
     "deny": [],
     "ask": []

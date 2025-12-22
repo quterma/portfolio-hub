@@ -44,12 +44,15 @@
       "screenshots": "Screenshots",
       "technologies": "Technologies",
       "tags": "Tags",
-      "info": "Project Info"
+      "info": "Project Info",
+      "highlights": "Key Highlights"
     },
     "labels": {
       "year": "Year:",
       "status": "Status:",
-      "featured": "Featured:"
+      "featured": "Featured:",
+      "period": "Period:",
+      "role": "Role:"
     },
     "status": {
       "completed": "Completed",
