@@ -76,15 +76,27 @@
   },
   "about": {
     "title": "About Me",
-    "intro": "Welcome to my portfolio! I'm a passionate developer focused on creating innovative solutions and building exceptional user experiences.",
+    "intro": "Hi, I'm Daniel, a Frontend developer from Tel Aviv. Since 2021 I've been building different web applications for e-commerce, construction, fintech, healthcare, and startup products. I like to focus on clean UI, predictable behavior, and maintainable architecture.",
     "sections": {
       "background": "Background",
-      "skills": "Skills"
+      "focus": "Focus",
+      "stack": "Stack",
+      "howIWork": "How I Work"
     },
-    "placeholders": {
-      "background": "More details about my background and journey will be added here.",
-      "skills": "Technical skills and expertise will be showcased here."
-    }
+    "background": "Before moving into web development, I spent over 15 years in business operations, so I can value ownership, clarity, and building solutions that make sense for real users and business goals, and not just code that \"works\".",
+    "focus": [
+      "Developing frontend applications with React and TypeScript",
+      "Writing clear, maintainable UI code and reusable components",
+      "Working with API-driven applications and basic backend integration",
+      "Improving existing code through debugging, refactoring, and pragmatic testing"
+    ],
+    "stack": "HTML, CSS, JavaScript, React, TypeScript, Next.js, Node.js, AWS",
+    "howIWork": [
+      "I take ownership of frontend features end-to-end and communicate trade-offs clearly",
+      "I'm comfortable working in Agile teams and distributed environments",
+      "I prefer simple, maintainable solutions over over-engineering"
+    ],
+    "closing": "Interested in working together or discussing a project? Let's talk."
   },
   "contact": {
     "title": "Contact",
