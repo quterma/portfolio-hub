@@ -1,5 +1,6 @@
 import { Container } from "@/components/ui/container"
 import { getTranslations } from "next-intl/server"
+import Link from "next/link"
 
 type AboutPageProps = {
   params: Promise<{
@@ -58,7 +59,14 @@ export default async function AboutPage({ params }: AboutPageProps) {
           </section>
 
           <p className="text-lg text-muted-foreground pt-4">
-            {t("about.closing")}
+            {t("about.closingText")}{" "}
+            <Link
+              href="/contact"
+              className="font-medium text-primary hover:underline"
+            >
+              {t("about.closingLink")}
+            </Link>
+            .
           </p>
         </div>
       </div>
