@@ -31,6 +31,7 @@
   --color-status-warning-foreground: var(--status-warning-foreground);
   --color-status-danger: var(--status-danger);
   --color-status-danger-foreground: var(--status-danger-foreground);
+  --color-hero-bg: var(--hero-bg);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -66,6 +67,9 @@
   --status-warning-foreground: oklch(0.21 0.006 285.885);
   --status-danger: oklch(0.577 0.245 27.325);
   --status-danger-foreground: oklch(0.985 0 0);
+
+  /* Hero background */
+  --hero-bg: var(--hero-bg-light);
 
   /* Typography */
   --font-size-h1-mobile: 2rem;
@@ -113,6 +117,9 @@
   --status-warning-foreground: oklch(0.21 0.006 285.885);
   --status-danger: oklch(0.704 0.191 22.216);
   --status-danger-foreground: oklch(0.985 0 0);
+
+  /* Hero background */
+  --hero-bg: var(--hero-bg-dark);
 }
 
 @layer base {
