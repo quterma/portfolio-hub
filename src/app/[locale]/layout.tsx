@@ -7,6 +7,7 @@ import { Footer } from "@/components/layout/footer"
 import { routing } from "@/i18n/routing"
 import { buildLocaleMetadata } from "@/lib/seo"
 import type { LocaleParams } from "@/types/route"
+import { LocaleProvider } from "@/providers"
 
 export function generateStaticParams() {
   return routing.locales.map(locale => ({ locale }))
@@ -46,11 +47,13 @@ export default async function LocaleLayout({
 
   return (
     <NextIntlClientProvider locale={locale} messages={messages}>
-      <div className="relative flex min-h-screen flex-col">
-        <Header />
-        <main className="flex-1">{children}</main>
-        <Footer />
-      </div>
+      <LocaleProvider initialLocale={locale as "en" | "ru"}>
+        <div className="relative flex min-h-screen flex-col">
+          <Header />
+          <main className="flex-1">{children}</main>
+          <Footer />
+        </div>
+      </LocaleProvider>
     </NextIntlClientProvider>
   )
 }

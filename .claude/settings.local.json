@@ -12,7 +12,8 @@
       "Bash(pnpm test:unit:*)",
       "Bash(identify:*)",
       "Bash(test:*)",
-      "Bash(pnpm lint:fix:*)"
+      "Bash(pnpm lint:fix:*)",
+      "Bash(pnpm format:*)"
     ],
     "deny": [],
     "ask": []
