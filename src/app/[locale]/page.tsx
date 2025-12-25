@@ -17,24 +17,24 @@ export default async function Home({ params }: HomeProps) {
 
   return (
     <div className="bg-hero-bg">
-      <Container className="max-w-3xl">
-        <div className="flex flex-col items-center justify-center space-y-5 py-12 text-center sm:py-16">
-          <div className="space-y-3">
-            <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl">
+      <Container className="max-w-4xl">
+        <div className="flex flex-col items-center justify-center space-y-6 py-12 text-center sm:py-16">
+          <div className="space-y-4">
+            <h1 className="max-w-2xl text-balance text-4xl font-bold leading-tight tracking-tight sm:text-5xl md:text-6xl">
               {t("home.hero.name")}
             </h1>
-            <p className="mx-auto max-w-[28rem] text-balance text-xl text-muted-foreground sm:max-w-none md:text-2xl">
+            <p className="text-lg font-medium text-foreground/85 sm:text-xl">
               {t("home.hero.role")}
             </p>
           </div>
-          <p className="mx-auto max-w-[700px] px-4 leading-relaxed text-muted-foreground sm:px-0 md:text-xl">
+          <p className="max-w-prose leading-relaxed text-muted-foreground md:text-lg">
             {t("home.hero.description")}
           </p>
-          <div className="space-x-4 pt-2">
-            <Button asChild>
+          <div className="flex gap-4 pt-2">
+            <Button asChild size="default">
               <Link href="/projects">{t("home.cta.projects")}</Link>
             </Button>
-            <Button variant="outline" asChild>
+            <Button variant="outline" asChild size="default">
               <Link href="/contact">{t("home.cta.contact")}</Link>
             </Button>
           </div>
