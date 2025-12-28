@@ -39,9 +39,14 @@ export function getProjects(filter?: ProjectFilter): Project[] {
   }
 
   if (filter?.tags && filter.tags.length > 0) {
-    filteredProjects = filteredProjects.filter(project =>
-      filter.tags!.some(tag => project.tags?.includes(tag))
-    )
+    filteredProjects = filteredProjects.filter(project => {
+      const allTags = [
+        ...(project.tags?.domain ?? []),
+        ...(project.tags?.tech ?? []),
+        ...(project.tags?.architecture ?? []),
+      ]
+      return filter.tags!.some(tag => allTags.includes(tag))
+    })
   }
 
   if (filter?.tech && filter.tech.length > 0) {
@@ -87,7 +92,11 @@ export function getProjectsByStatus(status: Project["status"]): Project[] {
 export function getAllTags(): string[] {
   const tagSet = new Set<string>()
   projects.forEach(project => {
-    project.tags?.forEach(tag => tagSet.add(tag))
+    if (project.tags) {
+      project.tags.domain?.forEach(tag => tagSet.add(tag))
+      project.tags.tech?.forEach(tag => tagSet.add(tag))
+      project.tags.architecture?.forEach(tag => tagSet.add(tag))
+    }
   })
   return Array.from(tagSet).sort()
 }
