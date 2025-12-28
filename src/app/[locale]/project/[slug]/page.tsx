@@ -52,12 +52,13 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
     (project.images?.mobileGallery && project.images.mobileGallery.length > 0)
   )
   const hasTech = !!(project.tech && project.tech.length > 0)
-  const hasTags = !!(
-    project.tags &&
-    (project.tags.domain?.length ||
-      project.tags.tech?.length ||
-      project.tags.architecture?.length)
-  )
+  const tags = project.tags
+  const hasTags =
+    !!tags &&
+    (tags.domain?.length ?? 0) +
+      (tags.tech?.length ?? 0) +
+      (tags.architecture?.length ?? 0) >
+      0
   const hasSidebar = hasTech || hasTags
 
   return (
