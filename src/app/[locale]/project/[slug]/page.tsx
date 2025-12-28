@@ -52,7 +52,12 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
     (project.images?.mobileGallery && project.images.mobileGallery.length > 0)
   )
   const hasTech = !!(project.tech && project.tech.length > 0)
-  const hasTags = !!(project.tags && project.tags.length > 0)
+  const hasTags = !!(
+    project.tags &&
+    (project.tags.domain?.length ||
+      project.tags.tech?.length ||
+      project.tags.architecture?.length)
+  )
   const hasSidebar = hasTech || hasTags
 
   return (
@@ -251,17 +256,61 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               )}
 
               {/* Tags */}
-              {project.tags && project.tags.length > 0 && (
+              {hasTags && project.tags && (
                 <div className="space-y-3">
                   <h3 className="text-lg font-semibold">
                     {t("project.sections.tags")}
                   </h3>
-                  <div className="flex flex-wrap gap-2">
-                    {project.tags.map(tag => (
-                      <Badge key={tag} variant="outline">
-                        {tag}
-                      </Badge>
-                    ))}
+                  <div className="flex flex-col gap-3">
+                    {project.tags.domain && project.tags.domain.length > 0 && (
+                      <div className="space-y-2">
+                        <p className="text-xs text-muted-foreground font-medium">
+                          Domain
+                        </p>
+                        <div className="flex flex-wrap gap-2">
+                          {project.tags.domain.map(tag => (
+                            <Badge
+                              key={tag}
+                              className="bg-blue-500/10 text-blue-700 dark:text-blue-400"
+                            >
+                              {tag}
+                            </Badge>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                    {project.tags.tech && project.tags.tech.length > 0 && (
+                      <div className="space-y-2">
+                        <p className="text-xs text-muted-foreground font-medium">
+                          Tech
+                        </p>
+                        <div className="flex flex-wrap gap-2">
+                          {project.tags.tech.map(tag => (
+                            <Badge key={tag} variant="secondary">
+                              {tag}
+                            </Badge>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                    {project.tags.architecture &&
+                      project.tags.architecture.length > 0 && (
+                        <div className="space-y-2">
+                          <p className="text-xs text-muted-foreground font-medium">
+                            Architecture
+                          </p>
+                          <div className="flex flex-wrap gap-2">
+                            {project.tags.architecture.map(tag => (
+                              <Badge
+                                key={tag}
+                                className="bg-violet-500/10 text-violet-700 dark:text-violet-400"
+                              >
+                                {tag}
+                              </Badge>
+                            ))}
+                          </div>
+                        </div>
+                      )}
                   </div>
                 </div>
               )}
