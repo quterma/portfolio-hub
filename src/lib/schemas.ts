@@ -22,7 +22,13 @@ export const ProjectSchema = z.object({
   role: LocalizedTextSchema.optional(),
   period: LocalizedTextSchema.optional(),
 
-  tags: z.array(z.string()).optional(),
+  tags: z
+    .object({
+      domain: z.array(z.string()).optional(),
+      tech: z.array(z.string()).optional(),
+      architecture: z.array(z.string()).optional(),
+    })
+    .optional(),
   tech: z.array(z.string()).optional(),
 
   highlights: z.array(LocalizedTextSchema).optional(),

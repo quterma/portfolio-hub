@@ -3,11 +3,11 @@
     "slug": "product-showcase",
     "title": {
       "en": "Product Showcase",
-      "ru": "Витрина Товаров"
+      "ru": "Product Showcase"
     },
     "summary": {
-      "en": "Technical assessment: e-commerce demo with advanced filtering, product CRUD, and a production-like UX",
-      "ru": "Тестовое приложение: демо интернет-магазина с продвинутыми фильтрами, CRUD товаров и production-like UX"
+      "en": "E-commerce app with advanced filtering and full-stack CRUD patterns",
+      "ru": "E-commerce приложение с продвинутой фильтрацией и full-stack CRUD"
     },
     "description": {
       "en": "Technical assessment / demo project showcasing modern frontend development practices in a realistic e-commerce domain. Users can browse products with advanced filtering, manage favorites, and perform full CRUD flows with fast feedback. Built with Feature-Sliced Design, accessibility-first components, and comprehensive testing (Vitest + Playwright).",
@@ -42,7 +42,11 @@
         "ru": "Оптимизация производительности с React 19 Compiler"
       }
     ],
-    "tags": ["e-commerce", "frontend", "react", "typescript", "portfolio"],
+    "tags": {
+      "domain": ["E-commerce"],
+      "tech": ["React", "Next.js", "TypeScript"],
+      "architecture": ["FSD", "Redux"]
+    },
     "tech": [
       "Next.js 16",
       "React 19",
@@ -75,12 +79,12 @@
   {
     "slug": "progis-map-app",
     "title": {
-      "en": "Progis Map Application",
-      "ru": "Картографическое Приложение Progis"
+      "en": "Progis Map",
+      "ru": "Progis Map"
     },
     "summary": {
-      "en": "Technical assessment: interactive GIS demo with WMS layers, geospatial visualization, and smart location identification",
-      "ru": "Тестовое приложение: GIS-демо с WMS-слоями, визуализацией геоданных и умной идентификацией локаций"
+      "en": "GIS app with WMS layers and zoom-adaptive feature identification",
+      "ru": "GIS-приложение с WMS-слоями и адаптивной идентификацией"
     },
     "description": {
       "en": "Technical assessment / demo project focused on interactive mapping and geospatial data visualization. Combines WMS/OGC layers with a modern React + TypeScript stack, including layer management and smart identification that adapts to zoom level. Built with a clean, modular structure and extensive JSDoc documentation for maintainability.",
@@ -111,7 +115,11 @@
         "ru": "Готовая к продакшену модульная структура"
       }
     ],
-    "tags": ["geospatial", "maps", "wms", "ogc", "gis"],
+    "tags": {
+      "domain": ["GIS"],
+      "tech": ["React", "Leaflet", "TypeScript"],
+      "architecture": ["WMS"]
+    },
     "tech": [
       "React 19",
       "TypeScript 5",
@@ -137,12 +145,12 @@
   {
     "slug": "trading-mini-app",
     "title": {
-      "en": "Trading Mini App",
-      "ru": "Мини-приложение для Трейдинга"
+      "en": "Trading Widget",
+      "ru": "Trading Widget"
     },
     "summary": {
-      "en": "Technical assessment: embeddable mobile-first trading widget with wallet state and real-time price charts",
-      "ru": "Тестовое приложение: встраиваемый mobile-first виджет с состоянием кошелька и графиками цен в реальном времени"
+      "en": "Mobile-first trading widget with wallet state and real-time charts",
+      "ru": "Mobile-first виджет для трейдинга с кошельком и графиками"
     },
     "description": {
       "en": "Technical assessment / demo project built as an embeddable mobile widget. Demonstrates a minimal Feature-Sliced Design setup, hook-based state management (no external store), and real-time charting with Recharts (24h data). Designed to be easy to embed and extend via a clean public API pattern (index exports + path aliases).",
@@ -173,7 +181,11 @@
         "ru": "Управление состоянием на хуках без внешних библиотек"
       }
     ],
-    "tags": ["trading", "mobile", "widget", "embed", "web3"],
+    "tags": {
+      "domain": ["Trading"],
+      "tech": ["React", "TypeScript"],
+      "architecture": ["Mobile-first", "Web3"]
+    },
     "tech": [
       "React 19",
       "TypeScript 5",
@@ -194,11 +206,11 @@
     "slug": "yokai-monitor",
     "title": {
       "en": "Yokai Monitor",
-      "ru": "Монитор Ёкаев"
+      "ru": "Yokai Monitor"
     },
     "summary": {
-      "en": "Technical assessment: real-time monitoring dashboard with SSE updates, optimistic actions, and resilience patterns",
-      "ru": "Тестовое приложение: real-time дашборд с SSE-обновлениями, оптимистичными действиями и паттернами устойчивости"
+      "en": "Real-time dashboard with SSE streaming and optimistic UI updates",
+      "ru": "Real-time дашборд с SSE-потоками и оптимистичными обновлениями"
     },
     "description": {
       "en": "Technical assessment / demo project showcasing real-time UI synchronization and production-like resilience patterns. Built as a monitoring dashboard with Server-Sent Events, optimistic actions (with rollback on errors), and auto-reconnect connection management. Implemented with strict Feature-Sliced Design layering, typed event models, and Dockerized local setup.",
@@ -233,7 +245,11 @@
         "ru": "SCSS Modules с CSS custom properties и плавными переходами"
       }
     ],
-    "tags": ["real-time", "monitoring", "sse", "frontend", "dashboard"],
+    "tags": {
+      "domain": ["Monitoring"],
+      "tech": ["Next.js", "TanStack Query", "TypeScript"],
+      "architecture": ["Real-time", "SSE"]
+    },
     "tech": [
       "Next.js 16",
       "React 19",
