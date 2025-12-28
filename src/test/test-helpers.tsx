@@ -30,7 +30,10 @@ export const createTestProject = (overrides?: Partial<Project>): Project => ({
   year: 2024,
   featured: false,
   tech: ["React", "TypeScript"],
-  tags: ["web", "frontend"],
+  tags: {
+    domain: ["web"],
+    tech: ["frontend"],
+  },
   urls: {
     demo: "https://example.com",
     github: "https://github.com/example/test",
