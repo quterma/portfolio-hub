@@ -64,7 +64,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
       <div className="flex flex-col space-y-8 py-12">
         {/* Navigation */}
         <div className="flex items-center space-x-4">
-          <Button variant="outline" size="sm" asChild>
+          <Button variant="ghost" size="sm" asChild>
             <Link href="/projects" className="flex items-center space-x-2">
               <ArrowLeft className="h-4 w-4" />
               <span>{t("project.backToProjects")}</span>
@@ -77,37 +77,41 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           className={`grid gap-6 ${project.images?.cover ? "lg:grid-cols-2" : "lg:grid-cols-1"}`}
         >
           {/* Left: Header, Links, Summary */}
-          <div className="space-y-6">
-            {/* Project Header */}
-            <div className="space-y-3">
-              <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
-                {title}
-              </h1>
-              <p className="text-lg text-muted-foreground leading-relaxed line-clamp-2 lg:line-clamp-3">
-                {summary}
-              </p>
-              <div className="flex items-center gap-2 text-sm text-muted-foreground flex-wrap">
-                {project.status && (
-                  <Badge
-                    className={statusColors[project.status]}
-                    variant="secondary"
-                  >
-                    {t(`project.status.${project.status}`)}
-                  </Badge>
-                )}
-                {project.role && (
-                  <>
-                    <span className="text-muted-foreground/50">•</span>
-                    <span>{getLocalizedText(project.role, locale)}</span>
-                  </>
-                )}
-              </div>
+          <div className="space-y-4">
+            {/* Title */}
+            <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
+              {title}
+            </h1>
+
+            {/* Summary */}
+            <p className="text-lg text-muted-foreground leading-relaxed">
+              {summary}
+            </p>
+
+            {/* Status & Role */}
+            <div className="flex items-center gap-2 text-sm flex-wrap">
+              {project.status && (
+                <Badge
+                  className={statusColors[project.status]}
+                  variant="secondary"
+                >
+                  {t(`project.status.${project.status}`)}
+                </Badge>
+              )}
+              {project.role && (
+                <>
+                  <span className="text-muted-foreground/50">•</span>
+                  <span className="text-muted-foreground">
+                    {getLocalizedText(project.role, locale)}
+                  </span>
+                </>
+              )}
             </div>
 
-            {/* External Links */}
-            <div className="flex flex-wrap gap-2">
+            {/* CTA */}
+            <div className="flex flex-col sm:flex-row gap-3 pt-2">
               {project.urls?.demo && (
-                <Button asChild variant="default">
+                <Button asChild variant="default" className="w-full sm:w-auto">
                   <Link
                     href={project.urls.demo}
                     target="_blank"
@@ -119,7 +123,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 </Button>
               )}
               {project.urls?.github && (
-                <Button asChild variant="outline">
+                <Button asChild variant="outline" className="w-full sm:w-auto">
                   <Link
                     href={project.urls.github}
                     target="_blank"
@@ -142,7 +146,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
           {/* Right: Cover Image */}
           {project.images?.cover && (
-            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-lg border">
+            <div className="relative aspect-[16/10] w-full max-w-[520px] lg:max-w-[560px] mx-auto lg:mx-0 overflow-hidden rounded-lg border shadow-sm">
               <Image
                 src={project.images.cover}
                 alt={`${title} cover image`}
@@ -229,18 +233,17 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
           {/* Sidebar */}
           {hasTags && (
-            <div className="space-y-6">
-              {/* Tags */}
+            <div className="lg:col-span-1">
               {hasTags && project.tags && (
-                <div className="space-y-3">
+                <div className="rounded-xl border bg-muted/30 p-4 space-y-4">
                   <h3 className="text-lg font-semibold">
                     {t("project.sections.tags")}
                   </h3>
-                  <div className="flex flex-col gap-3">
+                  <div className="flex flex-col gap-4">
                     {project.tags.domain && project.tags.domain.length > 0 && (
                       <div className="space-y-2">
-                        <p className="text-xs text-muted-foreground font-medium">
-                          Domain
+                        <p className="text-xs text-muted-foreground font-medium uppercase tracking-wide">
+                          {t("project.tagCategories.domain")}
                         </p>
                         <div className="flex flex-wrap gap-2">
                           {project.tags.domain.map(tag => (
@@ -248,7 +251,14 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                               key={tag}
                               className="bg-blue-500/10 text-blue-700 dark:text-blue-400"
                             >
-                              {tag}
+                              {tag
+                                .split(" ")
+                                .map(
+                                  word =>
+                                    word.charAt(0).toUpperCase() +
+                                    word.slice(1).toLowerCase()
+                                )
+                                .join(" ")}
                             </Badge>
                           ))}
                         </div>
@@ -256,13 +266,20 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                     )}
                     {project.tags.tech && project.tags.tech.length > 0 && (
                       <div className="space-y-2">
-                        <p className="text-xs text-muted-foreground font-medium">
-                          Tech
+                        <p className="text-xs text-muted-foreground font-medium uppercase tracking-wide">
+                          {t("project.tagCategories.tech")}
                         </p>
                         <div className="flex flex-wrap gap-2">
                           {project.tags.tech.map(tag => (
                             <Badge key={tag} variant="secondary">
-                              {tag}
+                              {tag
+                                .split(" ")
+                                .map(
+                                  word =>
+                                    word.charAt(0).toUpperCase() +
+                                    word.slice(1).toLowerCase()
+                                )
+                                .join(" ")}
                             </Badge>
                           ))}
                         </div>
@@ -271,8 +288,8 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                     {project.tags.architecture &&
                       project.tags.architecture.length > 0 && (
                         <div className="space-y-2">
-                          <p className="text-xs text-muted-foreground font-medium">
-                            Architecture
+                          <p className="text-xs text-muted-foreground font-medium uppercase tracking-wide">
+                            {t("project.tagCategories.architecture")}
                           </p>
                           <div className="flex flex-wrap gap-2">
                             {project.tags.architecture.map(tag => (
@@ -280,7 +297,14 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                                 key={tag}
                                 className="bg-violet-500/10 text-violet-700 dark:text-violet-400"
                               >
-                                {tag}
+                                {tag
+                                  .split(" ")
+                                  .map(
+                                    word =>
+                                      word.charAt(0).toUpperCase() +
+                                      word.slice(1).toLowerCase()
+                                  )
+                                  .join(" ")}
                               </Badge>
                             ))}
                           </div>

@@ -58,6 +58,11 @@
       "info": "Project Info",
       "highlights": "Key Highlights"
     },
+    "tagCategories": {
+      "domain": "Domain",
+      "tech": "Tech",
+      "architecture": "Architecture"
+    },
     "labels": {
       "year": "Year:",
       "status": "Status:",

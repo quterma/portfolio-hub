@@ -58,6 +58,11 @@
       "info": "Информация о проекте",
       "highlights": "Ключевые особенности"
     },
+    "tagCategories": {
+      "domain": "Область",
+      "tech": "Технологии",
+      "architecture": "Архитектура"
+    },
     "labels": {
       "year": "Год:",
       "status": "Статус:",
