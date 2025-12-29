@@ -74,22 +74,22 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
         {/* Hero Section with Cover */}
         <div
-          className={`grid gap-6 ${project.images?.cover ? "lg:grid-cols-2" : "lg:grid-cols-1"}`}
+          className={`grid mb-3 gap-6 ${project.images?.cover ? "lg:grid-cols-2" : "lg:grid-cols-1"}`}
         >
           {/* Left: Header, Links, Summary */}
           <div className="space-y-4">
             {/* Title */}
-            <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
+            <h1 className="text-3xl mb-5 font-bold tracking-tight sm:text-4xl">
               {title}
             </h1>
 
             {/* Summary */}
-            <p className="text-lg text-muted-foreground leading-relaxed">
+            <p className="text-lg mb-5 text-muted-foreground leading-relaxed">
               {summary}
             </p>
 
             {/* Status & Role */}
-            <div className="flex items-center gap-2 text-sm flex-wrap">
+            <div className="flex mb-5 items-center gap-3 text-sm flex-wrap">
               {project.status && (
                 <Badge
                   className={statusColors[project.status]}
@@ -102,11 +102,44 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 <>
                   <span className="text-muted-foreground/50">•</span>
                   <span className="text-muted-foreground">
-                    {getLocalizedText(project.role, locale)}
+                    Role: {getLocalizedText(project.role, locale)}
                   </span>
                 </>
               )}
             </div>
+
+            {/* Tags */}
+            {hasTags && project.tags && (
+              <div className="flex flex-wrap gap-3">
+                {project.tags.domain?.map(tag => (
+                  <Badge
+                    key={`domain-${tag}`}
+                    variant="outline"
+                    className="bg-blue-500/10 text-blue-700 dark:text-blue-300 border-blue-500/30"
+                  >
+                    {tag}
+                  </Badge>
+                ))}
+                {project.tags.tech?.map(tag => (
+                  <Badge
+                    key={`tech-${tag}`}
+                    variant="outline"
+                    className="bg-muted/50 text-foreground/80 border-border"
+                  >
+                    {tag}
+                  </Badge>
+                ))}
+                {project.tags.architecture?.map(tag => (
+                  <Badge
+                    key={`arch-${tag}`}
+                    variant="outline"
+                    className="bg-violet-500/10 text-violet-700 dark:text-violet-300 border-violet-500/30"
+                  >
+                    {tag}
+                  </Badge>
+                ))}
+              </div>
+            )}
 
             {/* CTA */}
             <div className="flex flex-col sm:flex-row gap-3 pt-2">
@@ -159,16 +192,16 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         </div>
 
         {(hasDescription || hasHighlights || hasGallery || hasTags) && (
-          <Separator />
+          <Separator className="my-8" />
         )}
 
         {/* Description */}
         {hasDescription && (
-          <div className="space-y-3">
+          <div className="space-y-4">
             <h2 className="text-2xl font-semibold">
               {t("project.sections.about")}
             </h2>
-            <p className="text-muted-foreground leading-relaxed max-w-4xl">
+            <p className="text-base text-muted-foreground leading-relaxed max-w-3xl">
               {description}
             </p>
           </div>
@@ -176,11 +209,11 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
         {/* Highlights */}
         {hasHighlights && project.highlights && (
-          <div className="space-y-3">
+          <div className="space-y-4 mb-3">
             <h2 className="text-2xl font-semibold">
               {t("project.sections.highlights")}
             </h2>
-            <ul className="space-y-2 list-disc list-inside text-muted-foreground max-w-4xl">
+            <ul className="space-y-2 list-disc list-inside text-base text-muted-foreground max-w-3xl">
               {project.highlights.map((highlight, index) => (
                 <li key={index}>{getLocalizedText(highlight, locale)}</li>
               ))}
@@ -188,134 +221,46 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           </div>
         )}
 
-        {(hasDescription || hasHighlights) && (hasGallery || hasTags) && (
-          <Separator />
+        {(hasDescription || hasHighlights) && hasGallery && (
+          <Separator className="my-8" />
         )}
 
-        {/* Gallery and Sidebar */}
-        <div className="grid gap-8 lg:grid-cols-5">
-          {/* Screenshots Gallery - 4/5 width */}
-          {hasGallery && (
-            <div className="lg:col-span-4 space-y-4">
-              <h2 className="text-2xl font-semibold">
-                {t("project.sections.screenshots")}
-              </h2>
-              <div className="grid gap-[3px] grid-cols-6 grid-flow-dense">
-                {project.images?.gallery?.map((screenshot, index) => (
-                  <div
-                    key={`desktop-${index}`}
-                    className="relative col-span-6 sm:col-span-4 aspect-[16/10] overflow-hidden"
-                  >
-                    <Image
-                      src={screenshot}
-                      alt={`${title} - desktop screenshot ${index + 1}`}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                ))}
-                {project.images?.mobileGallery?.map((screenshot, index) => (
-                  <div
-                    key={`mobile-${index}`}
-                    className="relative col-span-3 sm:col-span-2 aspect-[9/16] overflow-hidden"
-                  >
-                    <Image
-                      src={screenshot}
-                      alt={`${title} - mobile screenshot ${index + 1}`}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {/* Sidebar */}
-          {hasTags && (
-            <div className="lg:col-span-1">
-              {hasTags && project.tags && (
-                <div className="rounded-xl border bg-muted/30 p-4 space-y-4">
-                  <h3 className="text-lg font-semibold">
-                    {t("project.sections.tags")}
-                  </h3>
-                  <div className="flex flex-col gap-4">
-                    {project.tags.domain && project.tags.domain.length > 0 && (
-                      <div className="space-y-2">
-                        <p className="text-xs text-muted-foreground font-medium uppercase tracking-wide">
-                          {t("project.tagCategories.domain")}
-                        </p>
-                        <div className="flex flex-wrap gap-2">
-                          {project.tags.domain.map(tag => (
-                            <Badge
-                              key={tag}
-                              className="bg-blue-500/10 text-blue-700 dark:text-blue-400"
-                            >
-                              {tag
-                                .split(" ")
-                                .map(
-                                  word =>
-                                    word.charAt(0).toUpperCase() +
-                                    word.slice(1).toLowerCase()
-                                )
-                                .join(" ")}
-                            </Badge>
-                          ))}
-                        </div>
-                      </div>
-                    )}
-                    {project.tags.tech && project.tags.tech.length > 0 && (
-                      <div className="space-y-2">
-                        <p className="text-xs text-muted-foreground font-medium uppercase tracking-wide">
-                          {t("project.tagCategories.tech")}
-                        </p>
-                        <div className="flex flex-wrap gap-2">
-                          {project.tags.tech.map(tag => (
-                            <Badge key={tag} variant="secondary">
-                              {tag
-                                .split(" ")
-                                .map(
-                                  word =>
-                                    word.charAt(0).toUpperCase() +
-                                    word.slice(1).toLowerCase()
-                                )
-                                .join(" ")}
-                            </Badge>
-                          ))}
-                        </div>
-                      </div>
-                    )}
-                    {project.tags.architecture &&
-                      project.tags.architecture.length > 0 && (
-                        <div className="space-y-2">
-                          <p className="text-xs text-muted-foreground font-medium uppercase tracking-wide">
-                            {t("project.tagCategories.architecture")}
-                          </p>
-                          <div className="flex flex-wrap gap-2">
-                            {project.tags.architecture.map(tag => (
-                              <Badge
-                                key={tag}
-                                className="bg-violet-500/10 text-violet-700 dark:text-violet-400"
-                              >
-                                {tag
-                                  .split(" ")
-                                  .map(
-                                    word =>
-                                      word.charAt(0).toUpperCase() +
-                                      word.slice(1).toLowerCase()
-                                  )
-                                  .join(" ")}
-                              </Badge>
-                            ))}
-                          </div>
-                        </div>
-                      )}
-                  </div>
+        {/* Gallery */}
+        {hasGallery && (
+          <div className="space-y-4">
+            <h2 className="text-2xl font-semibold">
+              {t("project.sections.screenshots")}
+            </h2>
+            <div className="grid gap-[3px] grid-cols-6 grid-flow-dense">
+              {project.images?.gallery?.map((screenshot, index) => (
+                <div
+                  key={`desktop-${index}`}
+                  className="relative col-span-6 sm:col-span-4 aspect-[16/10] overflow-hidden"
+                >
+                  <Image
+                    src={screenshot}
+                    alt={`${title} - desktop screenshot ${index + 1}`}
+                    fill
+                    className="object-cover"
+                  />
                 </div>
-              )}
+              ))}
+              {project.images?.mobileGallery?.map((screenshot, index) => (
+                <div
+                  key={`mobile-${index}`}
+                  className="relative col-span-3 sm:col-span-2 aspect-[9/16] overflow-hidden"
+                >
+                  <Image
+                    src={screenshot}
+                    alt={`${title} - mobile screenshot ${index + 1}`}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+              ))}
             </div>
-          )}
-        </div>
+          </div>
+        )}
       </div>
     </Container>
   )
