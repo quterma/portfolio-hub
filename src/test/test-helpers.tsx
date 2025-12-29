@@ -27,12 +27,10 @@ export const createTestProject = (overrides?: Partial<Project>): Project => ({
     en: "A detailed description of the test project",
   },
   status: "completed",
-  year: 2024,
   featured: false,
-  tech: ["React", "TypeScript"],
   tags: {
     domain: ["web"],
-    tech: ["frontend"],
+    tech: ["React", "TypeScript", "frontend"],
   },
   urls: {
     demo: "https://example.com",

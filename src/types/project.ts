@@ -8,6 +8,4 @@ export interface ProjectFilter {
   status?: ProjectStatus
   featured?: boolean
   tags?: string[]
-  tech?: string[]
-  year?: number
 }

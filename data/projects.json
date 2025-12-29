@@ -2,64 +2,53 @@
   {
     "slug": "product-showcase",
     "title": {
-      "en": "Product Showcase",
-      "ru": "Product Showcase"
+      "en": "E-com Showcase",
+      "ru": "E-com Витрина"
     },
     "summary": {
-      "en": "E-commerce app with advanced filtering and full-stack CRUD patterns",
-      "ru": "E-commerce приложение с продвинутой фильтрацией и full-stack CRUD"
+      "en": "E-commerce frontend demo: advanced filters, favorites, and CRUD flows",
+      "ru": "E-commerce фронтенд демо: фильтры, избранное и CRUD-сценарии"
     },
     "description": {
-      "en": "Technical assessment / demo project showcasing modern frontend development practices in a realistic e-commerce domain. Users can browse products with advanced filtering, manage favorites, and perform full CRUD flows with fast feedback. Built with Feature-Sliced Design, accessibility-first components, and comprehensive testing (Vitest + Playwright).",
-      "ru": "Тестовое приложение (демо-проект), показывающее современные практики фронтенд-разработки на примере e-commerce. Пользователь может просматривать товары с продвинутой фильтрацией, управлять избранным и выполнять полный CRUD с быстрой обратной связью. Архитектура Feature-Sliced Design, компоненты с приоритетом доступности и комплексные тесты (Vitest + Playwright)."
+      "en": "Frontend demo in an e-commerce domain: advanced filtering, favorites, and CRUD flows with fast UI feedback. Built with Feature-Sliced Design and a production-style UI architecture.",
+      "ru": "Фронтенд-демо в e-commerce: продвинутая фильтрация, избранное и CRUD-сценарии с быстрым UI-фидбеком. Архитектура Feature-Sliced Design и production-style подход к UI."
     },
-    "year": 2025,
     "status": "completed",
     "featured": true,
     "role": {
-      "en": "Full-stack Frontend Developer",
-      "ru": "Full-stack Frontend разработчик"
-    },
-    "period": {
-      "en": "November 2025",
-      "ru": "Ноябрь 2025"
+      "en": "Frontend Developer",
+      "ru": "Фронтенд разработчик"
     },
     "highlights": [
       {
-        "en": "Feature-Sliced Design architecture for scalability",
-        "ru": "Архитектура Feature-Sliced Design для масштабируемости"
+        "en": "Feature-Sliced Design (FSD) structure with clear boundaries and scalable composition",
+        "ru": "Feature-Sliced Design (FSD): чёткие границы слоёв и масштабируемая композиция"
       },
       {
-        "en": "Comprehensive testing with Vitest and Playwright",
-        "ru": "Комплексное тестирование с Vitest и Playwright"
+        "en": "E2E and unit testing setup: Playwright + Vitest (core flows covered)",
+        "ru": "Тестовая база: Playwright + Vitest (покрыты ключевые сценарии)"
       },
       {
-        "en": "Accessibility-first component design with Radix UI",
-        "ru": "Компоненты с приоритетом доступности на Radix UI"
-      },
-      {
-        "en": "Performance optimization with React 19 Compiler",
-        "ru": "Оптимизация производительности с React 19 Compiler"
+        "en": "Performance-minded UI: memoization, list rendering, and predictable state updates",
+        "ru": "Производительность UI: мемоизация, рендер списков и предсказуемые обновления состояния"
       }
     ],
     "tags": {
       "domain": ["E-commerce"],
-      "tech": ["React", "Next.js", "TypeScript"],
+      "tech": [
+        "Next.js",
+        "React",
+        "TypeScript",
+        "Redux",
+        "RTK Query",
+        "Zod",
+        "Tailwind",
+        "Radix",
+        "Vitest",
+        "Playwright"
+      ],
       "architecture": ["FSD", "Redux"]
     },
-    "tech": [
-      "Next.js 16",
-      "React 19",
-      "TypeScript 5",
-      "Redux Toolkit 2.9",
-      "RTK Query",
-      "React Hook Form",
-      "Zod",
-      "Tailwind CSS v4",
-      "Radix UI",
-      "Vitest",
-      "Playwright"
-    ],
     "urls": {
       "demo": "https://prod-show-case.vercel.app",
       "github": "https://github.com/quterma/prod-show-case"
@@ -79,56 +68,42 @@
   {
     "slug": "progis-map-app",
     "title": {
-      "en": "Progis Map",
-      "ru": "Progis Map"
+      "en": "GIS Mapping App",
+      "ru": "GIS-приложение"
     },
     "summary": {
-      "en": "GIS app with WMS layers and zoom-adaptive feature identification",
-      "ru": "GIS-приложение с WMS-слоями и адаптивной идентификацией"
+      "en": "Interactive GIS frontend with WMS layers and zoom-aware feature identification",
+      "ru": "Интерактивный GIS-фронтенд с WMS-слоями и адаптивной идентификацией"
     },
     "description": {
-      "en": "Technical assessment / demo project focused on interactive mapping and geospatial data visualization. Combines WMS/OGC layers with a modern React + TypeScript stack, including layer management and smart identification that adapts to zoom level. Built with a clean, modular structure and extensive JSDoc documentation for maintainability.",
-      "ru": "Тестовое приложение (демо-проект), сфокусированное на интерактивных картах и визуализации геоданных. Сочетает WMS/OGC-слои с современным стеком React + TypeScript: управление слоями и умная идентификация, адаптирующаяся к уровню зума. Чистая модульная структура и подробная JSDoc-документация для удобной поддержки."
+      "en": "Frontend-focused GIS demo for interactive map rendering and geospatial data visualization. Supports WMS/OGC layers, layer management, and smart feature identification that adapts to the current zoom level. Built with a clean modular architecture and strong emphasis on maintainability and developer experience.",
+      "ru": "Фронтенд-демо GIS-приложения для интерактивных карт и визуализации геоданных. Поддерживает WMS/OGC-слои, управление слоями и умную идентификацию объектов, адаптирующуюся к текущему уровню зума. Реализовано с чистой модульной архитектурой и акцентом на поддерживаемость и удобство разработки."
     },
-    "year": 2025,
     "status": "in-progress",
     "featured": false,
     "role": {
       "en": "Frontend Developer",
-      "ru": "Frontend разработчик"
-    },
-    "period": {
-      "en": "October - November 2025",
-      "ru": "Октябрь - Ноябрь 2025"
+      "ru": "Фронтенд разработчик"
     },
     "highlights": [
       {
-        "en": "Clean architecture with infrastructure/UI separation",
-        "ru": "Чистая архитектура с разделением инфраструктуры и UI"
+        "en": "Layer-based GIS architecture with zoom-dependent feature identification",
+        "ru": "Слойная GIS-архитектура с идентификацией объектов, зависящей от уровня зума"
       },
       {
-        "en": "Comprehensive Russian JSDoc documentation",
-        "ru": "Полная документация JSDoc на русском языке"
+        "en": "Clear separation between map infrastructure and UI logic",
+        "ru": "Чёткое разделение инфраструктуры карты и UI-логики"
       },
       {
-        "en": "Production-ready modular structure",
-        "ru": "Готовая к продакшену модульная структура"
+        "en": "Well-documented codebase with extensive JSDoc for maintainability",
+        "ru": "Хорошо документированный код с подробным JSDoc для удобной поддержки"
       }
     ],
     "tags": {
       "domain": ["GIS"],
-      "tech": ["React", "Leaflet", "TypeScript"],
-      "architecture": ["WMS"]
+      "tech": ["React", "TypeScript", "Leaflet", "WMS", "OGC", "OpenStreetMap"],
+      "architecture": ["Clean architecture"]
     },
-    "tech": [
-      "React 19",
-      "TypeScript 5",
-      "Vite",
-      "Leaflet",
-      "OpenStreetMap",
-      "WMS/OGC",
-      "Vitest"
-    ],
     "urls": {
       "demo": "https://quterma.github.io/progis-map-app",
       "github": "https://github.com/quterma/progis-map-app"
@@ -146,54 +121,41 @@
     "slug": "trading-mini-app",
     "title": {
       "en": "Trading Widget",
-      "ru": "Trading Widget"
+      "ru": "Торговый виджет"
     },
     "summary": {
       "en": "Mobile-first trading widget with wallet state and real-time charts",
-      "ru": "Mobile-first виджет для трейдинга с кошельком и графиками"
+      "ru": "Торговый виджет с кошельком и графиками в реальном времени"
     },
     "description": {
-      "en": "Technical assessment / demo project built as an embeddable mobile widget. Demonstrates a minimal Feature-Sliced Design setup, hook-based state management (no external store), and real-time charting with Recharts (24h data). Designed to be easy to embed and extend via a clean public API pattern (index exports + path aliases).",
-      "ru": "Тестовое приложение (демо-проект) в формате встраиваемого мобильного виджета. Демонстрирует минимальную архитектуру Feature-Sliced Design, управление состоянием на хуках (без внешнего стора) и графики в реальном времени на Recharts (данные за 24 часа). Дизайн рассчитан на встраивание и расширение через паттерн публичного API (экспорты через index + алиасы путей)."
+      "en": "Frontend demo of an embeddable trading widget designed for mobile-first usage. Implements hook-based state management without external stores, real-time charting for 24h data, and a clean public API pattern for easy integration and extension.",
+      "ru": "Фронтенд-демо встраиваемого торгового виджета, спроектированного по mobile-first подходу. Реализует управление состоянием на хуках без внешнего стора, графики в реальном времени за 24 часа и чистый паттерн публичного API для простой интеграции и расширения."
     },
-    "year": 2025,
     "status": "in-progress",
     "featured": false,
     "role": {
       "en": "Frontend Developer",
-      "ru": "Frontend разработчик"
-    },
-    "period": {
-      "en": "November 2025",
-      "ru": "Ноябрь 2025"
+      "ru": "Фронтенд разработчик"
     },
     "highlights": [
       {
-        "en": "Minimal FSD architecture for one-day implementation",
-        "ru": "Минимальная FSD архитектура для реализации за один день"
+        "en": "Minimal Feature-Sliced Design setup for small, focused widgets",
+        "ru": "Минимальная настройка Feature-Sliced Design для компактных виджетов"
       },
       {
-        "en": "Embed-friendly mobile widget design",
-        "ru": "Встраиваемый дизайн мобильного виджета"
+        "en": "Hook-based state management without external state libraries",
+        "ru": "Управление состоянием на хуках без внешних библиотек состояния"
       },
       {
-        "en": "Hook-based state management without external libraries",
-        "ru": "Управление состоянием на хуках без внешних библиотек"
+        "en": "Embed-friendly architecture with a clear public API",
+        "ru": "Архитектура, удобная для встраивания, с чётким публичным API"
       }
     ],
     "tags": {
       "domain": ["Trading"],
-      "tech": ["React", "TypeScript"],
-      "architecture": ["Mobile-first", "Web3"]
+      "tech": ["React", "TypeScript", "Recharts", "Tailwind"],
+      "architecture": ["Mobile-first"]
     },
-    "tech": [
-      "React 19",
-      "TypeScript 5",
-      "Vite",
-      "Tailwind CSS v4",
-      "Recharts",
-      "Vitest"
-    ],
     "urls": {
       "github": "https://github.com/quterma/trading-mini-app"
     },
@@ -205,62 +167,55 @@
   {
     "slug": "yokai-monitor",
     "title": {
-      "en": "Yokai Monitor",
-      "ru": "Yokai Monitor"
+      "en": "Monitoring Dashboard",
+      "ru": "Дашборд мониторинга"
     },
     "summary": {
-      "en": "Real-time dashboard with SSE streaming and optimistic UI updates",
-      "ru": "Real-time дашборд с SSE-потоками и оптимистичными обновлениями"
+      "en": "Real-time monitoring dashboard with SSE streaming and optimistic UI updates",
+      "ru": "Дашборд мониторинга с SSE и оптимистичными обновлениями UI"
     },
     "description": {
-      "en": "Technical assessment / demo project showcasing real-time UI synchronization and production-like resilience patterns. Built as a monitoring dashboard with Server-Sent Events, optimistic actions (with rollback on errors), and auto-reconnect connection management. Implemented with strict Feature-Sliced Design layering, typed event models, and Dockerized local setup.",
-      "ru": "Тестовое приложение (демо-проект), демонстрирующее синхронизацию UI в реальном времени и production-like паттерны устойчивости. Дашборд использует Server-Sent Events, оптимистичные действия (с откатом при ошибках) и авто-переподключение. Строгая слоистая архитектура Feature-Sliced Design, типизированные модели событий и Docker-окружение для локального запуска."
+      "en": "Frontend-focused monitoring dashboard demonstrating real-time UI synchronization and resilient interaction patterns. Uses Server-Sent Events for live updates, optimistic actions with rollback on errors, and automatic reconnection handling. Built with strict Feature-Sliced Design layering, typed event models, and a Dockerized local environment.",
+      "ru": "Фронтенд-ориентированный дашборд мониторинга, демонстрирующий синхронизацию UI в реальном времени и устойчивые паттерны взаимодействия. Использует Server-Sent Events для live-обновлений, оптимистичные действия с откатом при ошибках и автоматическое переподключение. Реализован со строгой слоистой архитектурой Feature-Sliced Design, типизированными моделями событий и Docker-окружением для локального запуска."
     },
-    "year": 2025,
     "status": "completed",
     "featured": true,
     "role": {
       "en": "Frontend Developer",
-      "ru": "Frontend разработчик"
-    },
-    "period": {
-      "en": "December 2025",
-      "ru": "Декабрь 2025"
+      "ru": "Фронтенд разработчик"
     },
     "highlights": [
       {
-        "en": "Strict Feature-Sliced Design architecture with layer isolation",
-        "ru": "Строгая архитектура Feature-Sliced Design с изоляцией слоёв"
+        "en": "Strict Feature-Sliced Design architecture with clear layer isolation",
+        "ru": "Строгая архитектура Feature-Sliced Design с чёткой изоляцией слоёв"
       },
       {
-        "en": "Server-Sent Events for real-time threat updates with auto-reconnect",
-        "ru": "Server-Sent Events для обновлений угроз в реальном времени с авто-переподключением"
+        "en": "Real-time data streaming via Server-Sent Events with auto-reconnect logic",
+        "ru": "Поток данных в реальном времени через Server-Sent Events с логикой авто-переподключения"
       },
       {
-        "en": "Optimistic updates with rollback on error simulation",
-        "ru": "Оптимистичные обновления с откатом при симуляции ошибок"
+        "en": "Optimistic UI updates with controlled rollback on error cases",
+        "ru": "Оптимистичные обновления UI с контролируемым откатом при ошибках"
       },
       {
-        "en": "SCSS Modules with CSS custom properties and smooth transitions",
-        "ru": "SCSS Modules с CSS custom properties и плавными переходами"
+        "en": "Themeable UI using SCSS Modules and CSS custom properties",
+        "ru": "Темизируемый UI на SCSS Modules и CSS custom properties"
       }
     ],
     "tags": {
       "domain": ["Monitoring"],
-      "tech": ["Next.js", "TanStack Query", "TypeScript"],
-      "architecture": ["Real-time", "SSE"]
+      "tech": [
+        "React",
+        "Next.js",
+        "TypeScript",
+        "TanStack Query",
+        "Zod",
+        "SCSS Modules",
+        "Server-Sent Events",
+        "Docker"
+      ],
+      "architecture": ["FSD", "Real-time", "Optimistic UI", "SSE"]
     },
-    "tech": [
-      "Next.js 16",
-      "React 19",
-      "TypeScript 5",
-      "TanStack Query 5",
-      "Zod",
-      "SCSS Modules",
-      "Server-Sent Events",
-      "Docker",
-      "Docker Compose"
-    ],
     "urls": {
       "demo": "https://yokai-monitor.vercel.app",
       "github": "https://github.com/quterma/yokai-monitor"

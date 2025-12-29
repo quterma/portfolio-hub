@@ -49,18 +49,6 @@ export function getProjects(filter?: ProjectFilter): Project[] {
     })
   }
 
-  if (filter?.tech && filter.tech.length > 0) {
-    filteredProjects = filteredProjects.filter(project =>
-      filter.tech!.some(tech => project.tech?.includes(tech))
-    )
-  }
-
-  if (filter?.year) {
-    filteredProjects = filteredProjects.filter(
-      project => project.year === filter.year
-    )
-  }
-
   return filteredProjects
 }
 
@@ -99,28 +87,4 @@ export function getAllTags(): string[] {
     }
   })
   return Array.from(tagSet).sort()
-}
-
-/**
- * Get all unique technologies from projects
- */
-export function getAllTechnologies(): string[] {
-  const techSet = new Set<string>()
-  projects.forEach(project => {
-    project.tech?.forEach(tech => techSet.add(tech))
-  })
-  return Array.from(techSet).sort()
-}
-
-/**
- * Get project years in descending order
- */
-export function getProjectYears(): number[] {
-  const yearSet = new Set<number>()
-  projects.forEach(project => {
-    if (project.year) {
-      yearSet.add(project.year)
-    }
-  })
-  return Array.from(yearSet).sort((a, b) => b - a)
 }

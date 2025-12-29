@@ -51,7 +51,6 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
     (project.images?.gallery && project.images.gallery.length > 0) ||
     (project.images?.mobileGallery && project.images.mobileGallery.length > 0)
   )
-  const hasTech = !!(project.tech && project.tech.length > 0)
   const tags = project.tags
   const hasTags =
     !!tags &&
@@ -59,7 +58,6 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
       (tags.tech?.length ?? 0) +
       (tags.architecture?.length ?? 0) >
       0
-  const hasSidebar = hasTech || hasTags
 
   return (
     <Container>
@@ -96,14 +94,6 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                   >
                     {t(`project.status.${project.status}`)}
                   </Badge>
-                )}
-                {(getLocalizedText(project.period, locale) || project.year) && (
-                  <>
-                    <span className="text-muted-foreground/50">•</span>
-                    <span>
-                      {getLocalizedText(project.period, locale) || project.year}
-                    </span>
-                  </>
                 )}
                 {project.role && (
                   <>
@@ -164,7 +154,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           )}
         </div>
 
-        {(hasDescription || hasHighlights || hasGallery || hasSidebar) && (
+        {(hasDescription || hasHighlights || hasGallery || hasTags) && (
           <Separator />
         )}
 
@@ -194,7 +184,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           </div>
         )}
 
-        {(hasDescription || hasHighlights) && (hasGallery || hasSidebar) && (
+        {(hasDescription || hasHighlights) && (hasGallery || hasTags) && (
           <Separator />
         )}
 
@@ -238,24 +228,8 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           )}
 
           {/* Sidebar */}
-          {hasSidebar && (
+          {hasTags && (
             <div className="space-y-6">
-              {/* Technologies */}
-              {project.tech && project.tech.length > 0 && (
-                <div className="space-y-3">
-                  <h3 className="text-lg font-semibold">
-                    {t("project.sections.technologies")}
-                  </h3>
-                  <div className="flex flex-wrap gap-2">
-                    {project.tech.map(tech => (
-                      <Badge key={tech} variant="secondary">
-                        {tech}
-                      </Badge>
-                    ))}
-                  </div>
-                </div>
-              )}
-
               {/* Tags */}
               {hasTags && project.tags && (
                 <div className="space-y-3">

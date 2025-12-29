@@ -31,7 +31,7 @@ export function ProjectCard({ project, locale }: ProjectCardProps) {
     displayBadges.push({ text: tags.domain[0], category: "domain" })
   if (tags?.tech) {
     tags.tech
-      .slice(0, 2)
+      .slice(0, 4)
       .forEach(t => displayBadges.push({ text: t, category: "tech" }))
   }
   if (tags?.architecture?.[0])
@@ -45,7 +45,7 @@ export function ProjectCard({ project, locale }: ProjectCardProps) {
       {/* Status Badge - Absolute Top Right */}
       {status && (
         <span
-          className={`absolute top-4 right-4 inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-medium ${
+          className={`absolute top-3 right-3 inline-flex items-center px-2 py-0.5 rounded-full text-[8px] uppercase font-medium ${
             status === "completed"
               ? "bg-green-500/10 text-green-700 dark:text-green-400"
               : status === "in-progress"
@@ -58,12 +58,12 @@ export function ProjectCard({ project, locale }: ProjectCardProps) {
       )}
 
       {/* Project Title */}
-      <h3 className="text-xl font-semibold mb-2 leading-tight group-hover:text-primary transition-colors whitespace-nowrap overflow-hidden text-ellipsis pr-16">
+      <h3 className="text-xl font-semibold mt-1 mb-3 group-hover:text-primary transition-colors whitespace-nowrap overflow-hidden text-ellipsis">
         {title}
       </h3>
 
       {/* Project Summary */}
-      <p className="text-muted-foreground text-sm mb-4 line-clamp-3">
+      <p className="text-muted-foreground text-sm mb-5 line-clamp-3">
         {summary}
       </p>
 

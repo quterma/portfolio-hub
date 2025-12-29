@@ -36,9 +36,15 @@ export default async function ProjectsPage({ params }: ProjectsPageProps) {
   const t = await getTranslations({ locale })
 
   const projects = getAllProjects().sort((a, b) => {
-    const aYear = a.year ?? 0
-    const bYear = b.year ?? 0
-    return bYear - aYear
+    const aFeatured = a.featured ? 1 : 0
+    const bFeatured = b.featured ? 1 : 0
+    if (aFeatured !== bFeatured) return bFeatured - aFeatured
+
+    const aCompleted = a.status === "completed" ? 1 : 0
+    const bCompleted = b.status === "completed" ? 1 : 0
+    if (aCompleted !== bCompleted) return bCompleted - aCompleted
+
+    return a.slug.localeCompare(b.slug)
   })
 
   return (

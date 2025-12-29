@@ -13,14 +13,12 @@ export const ProjectSchema = z.object({
   summary: LocalizedTextSchema,
   description: LocalizedTextSchema.optional(),
 
-  year: z.number().int().optional(),
   status: z
     .enum(["completed", "in-progress", "planned", "archived"])
     .optional(),
   featured: z.boolean().optional(),
 
   role: LocalizedTextSchema.optional(),
-  period: LocalizedTextSchema.optional(),
 
   tags: z
     .object({
@@ -29,7 +27,6 @@ export const ProjectSchema = z.object({
       architecture: z.array(z.string()).optional(),
     })
     .optional(),
-  tech: z.array(z.string()).optional(),
 
   highlights: z.array(LocalizedTextSchema).optional(),
 
