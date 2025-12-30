@@ -36,10 +36,7 @@ export const createTestProject = (overrides?: Partial<Project>): Project => ({
     demo: "https://example.com",
     github: "https://github.com/example/test",
   },
-  images: {
-    cover: "/test-hero.jpg",
-    gallery: [],
-  },
+  images: [],
   ...overrides,
 })
 

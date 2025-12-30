@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge"
 import { Separator } from "@/components/ui/separator"
 import { getProjectBySlug } from "@/lib/projects"
 import { getLocalizedText } from "@/lib/i18n-utils"
+import { getProjectImagePaths } from "@/lib/gallery"
 import { getTranslations } from "next-intl/server"
 import { ArrowLeft, Globe } from "lucide-react"
 import { siGithub } from "simple-icons"
@@ -28,6 +29,8 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   if (!project) {
     notFound()
   }
+
+  await getProjectImagePaths(slug)
 
   const title = getLocalizedText(project.title, locale)
   const summary = getLocalizedText(project.summary, locale)
@@ -111,20 +114,20 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                   {tag}
                 </Badge>
               ))}
-              {project.tags.tech?.map(tag => (
-                <Badge
-                  key={`tech-${tag}`}
-                  variant="outline"
-                  className="bg-muted/50 text-foreground/80 border-border"
-                >
-                  {tag}
-                </Badge>
-              ))}
               {project.tags.architecture?.map(tag => (
                 <Badge
                   key={`arch-${tag}`}
                   variant="outline"
                   className="bg-violet-500/10 text-violet-700 dark:text-violet-300 border-violet-500/30"
+                >
+                  {tag}
+                </Badge>
+              ))}
+              {project.tags.tech?.map(tag => (
+                <Badge
+                  key={`tech-${tag}`}
+                  variant="outline"
+                  className="bg-muted/50 text-foreground/80 border-border"
                 >
                   {tag}
                 </Badge>
