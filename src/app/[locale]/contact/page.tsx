@@ -1,7 +1,7 @@
 import { Container } from "@/components/ui/container"
 import { Button } from "@/components/ui/button"
 import { getTranslations } from "next-intl/server"
-import { Mail, Phone, Send } from "lucide-react"
+import { Download, Mail, Phone, Send } from "lucide-react"
 import contacts from "@/messages/contacts.json"
 
 type ContactPageProps = {
@@ -13,6 +13,11 @@ type ContactPageProps = {
 export default async function ContactPage({ params }: ContactPageProps) {
   const { locale } = await params
   const t = await getTranslations({ locale })
+
+  const cvHref =
+    locale === "ru"
+      ? "/cv/daniel-shapiro-frontend-developer-ru.pdf"
+      : "/cv/daniel-shapiro-frontend-developer-gl.pdf"
 
   return (
     <Container>
@@ -108,6 +113,17 @@ export default async function ContactPage({ params }: ContactPageProps) {
               <span className="flex-1 text-left">
                 {t("contact.links.github")}
               </span>
+            </a>
+          </Button>
+
+          <Button
+            variant="outline"
+            className="w-full justify-start gap-3"
+            asChild
+          >
+            <a href={cvHref} download>
+              <Download className="h-5 w-5" />
+              <span className="flex-1 text-left">{t("contact.links.cv")}</span>
             </a>
           </Button>
         </div>
