@@ -215,8 +215,11 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             )}
           </div>
 
+          {/* Separator between columns on mobile/tablet */}
+          {imagePaths.length > 0 && <Separator className="lg:hidden my-8" />}
+
           {/* Right column - Gallery */}
-          <div className="w-full lg:w-1/3 lg:sticky lg:top-24">
+          <div className="w-full lg:w-1/3 lg:sticky lg:top-58 mt-4 lg:mt-0">
             <ProjectGalleryMasonry
               title={t("project.sections.screenshots")}
               images={imagePaths}
