@@ -95,7 +95,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
           {imagePaths.length > 0 && <Separator className="lg:hidden my-8" />}
 
-          <div className="w-full lg:w-1/3 lg:sticky lg:top-58 mt-4 lg:mt-0">
+          <div className="w-full lg:w-1/3 lg:max-w-[440px] lg:sticky lg:top-24 mt-4 lg:mt-0">
             <ProjectGalleryMasonry images={imagePaths} />
           </div>
         </div>

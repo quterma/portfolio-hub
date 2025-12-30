@@ -10,9 +10,11 @@ export function ProjectGalleryMasonry({ images }: ProjectGalleryMasonryProps) {
   const columnClass = images.length <= 3 ? "sm:columns-1" : "sm:columns-2"
 
   return (
-    <div className={`bg-muted p-2 rounded-sm columns-1 gap-2 ${columnClass}`}>
+    <div
+      className={`bg-muted p-1.5 rounded-sm columns-1 gap-1.5 ${columnClass}`}
+    >
       {images.map((src, index) => (
-        <div key={src} className="break-inside-avoid mb-2">
+        <div key={src} className="break-inside-avoid mb-1.5">
           <Image
             src={src}
             alt={`Screenshot ${index + 1}`}

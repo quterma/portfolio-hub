@@ -46,15 +46,13 @@ export function ProjectHero({
 
   return (
     <div className="space-y-4">
-      <h1 className="text-3xl mb-5 font-bold tracking-tight sm:text-4xl">
-        {title}
-      </h1>
+      <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">{title}</h1>
 
-      <p className="text-lg mb-5 text-muted-foreground leading-relaxed">
+      <p className="text-lg text-muted-foreground leading-relaxed break-words">
         {summary}
       </p>
 
-      <div className="flex mb-5 items-center gap-3 text-sm flex-wrap">
+      <div className="flex items-center gap-3 text-sm flex-wrap">
         {status && statusColor && statusLabel && (
           <Badge className={statusColor} variant="secondary">
             {statusLabel}
@@ -69,7 +67,7 @@ export function ProjectHero({
       </div>
 
       {hasTags && tags && (
-        <div className="flex flex-wrap gap-3">
+        <div className="flex flex-wrap gap-3 break-words">
           {tags.domain?.map(tag => (
             <Badge
               key={`domain-${tag}`}

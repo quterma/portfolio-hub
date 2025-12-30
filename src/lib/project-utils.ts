@@ -1,6 +1,6 @@
 import type { ProjectStatus } from "@/types/project"
 
-export const statusColors: Record<ProjectStatus, string> = {
+export const statusColors: Record<NonNullable<ProjectStatus>, string> = {
   completed:
     "bg-green-100 text-green-800 dark:bg-green-900/20 dark:text-green-400",
   "in-progress":
