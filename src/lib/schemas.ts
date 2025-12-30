@@ -37,13 +37,7 @@ export const ProjectSchema = z.object({
     })
     .optional(),
 
-  images: z
-    .object({
-      cover: z.string().optional(),
-      gallery: z.array(z.string()).optional(),
-      mobileGallery: z.array(z.string()).optional(),
-    })
-    .optional(),
+  images: z.array(z.string()).optional(),
 })
 
 export const ProjectsSchema = z.array(ProjectSchema)

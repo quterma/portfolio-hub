@@ -1,5 +1,4 @@
 import { notFound } from "next/navigation"
-import Image from "next/image"
 import { Link } from "@/i18n/navigation"
 import { Container } from "@/components/ui/container"
 import { Button } from "@/components/ui/button"
@@ -47,10 +46,6 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
   const hasDescription = !!description
   const hasHighlights = !!(project.highlights && project.highlights.length > 0)
-  const hasGallery = !!(
-    (project.images?.gallery && project.images.gallery.length > 0) ||
-    (project.images?.mobileGallery && project.images.mobileGallery.length > 0)
-  )
   const tags = project.tags
   const hasTags =
     !!tags &&
@@ -72,128 +67,108 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           </Button>
         </div>
 
-        {/* Hero Section with Cover */}
-        <div
-          className={`grid mb-3 gap-6 ${project.images?.cover ? "lg:grid-cols-2" : "lg:grid-cols-1"}`}
-        >
-          {/* Left: Header, Links, Summary */}
-          <div className="space-y-4">
-            {/* Title */}
-            <h1 className="text-3xl mb-5 font-bold tracking-tight sm:text-4xl">
-              {title}
-            </h1>
+        {/* Hero Section */}
+        <div className="space-y-4">
+          {/* Title */}
+          <h1 className="text-3xl mb-5 font-bold tracking-tight sm:text-4xl">
+            {title}
+          </h1>
 
-            {/* Summary */}
-            <p className="text-lg mb-5 text-muted-foreground leading-relaxed">
-              {summary}
-            </p>
+          {/* Summary */}
+          <p className="text-lg mb-5 text-muted-foreground leading-relaxed">
+            {summary}
+          </p>
 
-            {/* Status & Role */}
-            <div className="flex mb-5 items-center gap-3 text-sm flex-wrap">
-              {project.status && (
-                <Badge
-                  className={statusColors[project.status]}
-                  variant="secondary"
-                >
-                  {t(`project.status.${project.status}`)}
-                </Badge>
-              )}
-              {project.role && (
-                <>
-                  <span className="text-muted-foreground/50">•</span>
-                  <span className="text-muted-foreground">
-                    Role: {getLocalizedText(project.role, locale)}
-                  </span>
-                </>
-              )}
-            </div>
-
-            {/* Tags */}
-            {hasTags && project.tags && (
-              <div className="flex flex-wrap gap-3">
-                {project.tags.domain?.map(tag => (
-                  <Badge
-                    key={`domain-${tag}`}
-                    variant="outline"
-                    className="bg-blue-500/10 text-blue-700 dark:text-blue-300 border-blue-500/30"
-                  >
-                    {tag}
-                  </Badge>
-                ))}
-                {project.tags.tech?.map(tag => (
-                  <Badge
-                    key={`tech-${tag}`}
-                    variant="outline"
-                    className="bg-muted/50 text-foreground/80 border-border"
-                  >
-                    {tag}
-                  </Badge>
-                ))}
-                {project.tags.architecture?.map(tag => (
-                  <Badge
-                    key={`arch-${tag}`}
-                    variant="outline"
-                    className="bg-violet-500/10 text-violet-700 dark:text-violet-300 border-violet-500/30"
-                  >
-                    {tag}
-                  </Badge>
-                ))}
-              </div>
+          {/* Status & Role */}
+          <div className="flex mb-5 items-center gap-3 text-sm flex-wrap">
+            {project.status && (
+              <Badge
+                className={statusColors[project.status]}
+                variant="secondary"
+              >
+                {t(`project.status.${project.status}`)}
+              </Badge>
             )}
-
-            {/* CTA */}
-            <div className="flex flex-col sm:flex-row gap-3 pt-2">
-              {project.urls?.demo && (
-                <Button asChild variant="default" className="w-full sm:w-auto">
-                  <Link
-                    href={project.urls.demo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <Globe className="h-4 w-4 mr-2" />
-                    {t("project.links.demo")}
-                  </Link>
-                </Button>
-              )}
-              {project.urls?.github && (
-                <Button asChild variant="outline" className="w-full sm:w-auto">
-                  <Link
-                    href={project.urls.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <svg
-                      className="h-4 w-4 mr-2"
-                      viewBox="0 0 24 24"
-                      fill="currentColor"
-                      aria-hidden="true"
-                    >
-                      <path d={siGithub.path} />
-                    </svg>
-                    {t("project.links.source")}
-                  </Link>
-                </Button>
-              )}
-            </div>
+            {project.role && (
+              <>
+                <span className="text-muted-foreground/50">•</span>
+                <span className="text-muted-foreground">
+                  Role: {getLocalizedText(project.role, locale)}
+                </span>
+              </>
+            )}
           </div>
 
-          {/* Right: Cover Image */}
-          {project.images?.cover && (
-            <div className="relative aspect-[16/10] w-full max-w-[520px] lg:max-w-[560px] mx-auto lg:mx-0 overflow-hidden rounded-lg border shadow-sm">
-              <Image
-                src={project.images.cover}
-                alt={`${title} cover image`}
-                fill
-                className="object-cover"
-                priority
-              />
+          {/* Tags */}
+          {hasTags && project.tags && (
+            <div className="flex flex-wrap gap-3">
+              {project.tags.domain?.map(tag => (
+                <Badge
+                  key={`domain-${tag}`}
+                  variant="outline"
+                  className="bg-blue-500/10 text-blue-700 dark:text-blue-300 border-blue-500/30"
+                >
+                  {tag}
+                </Badge>
+              ))}
+              {project.tags.tech?.map(tag => (
+                <Badge
+                  key={`tech-${tag}`}
+                  variant="outline"
+                  className="bg-muted/50 text-foreground/80 border-border"
+                >
+                  {tag}
+                </Badge>
+              ))}
+              {project.tags.architecture?.map(tag => (
+                <Badge
+                  key={`arch-${tag}`}
+                  variant="outline"
+                  className="bg-violet-500/10 text-violet-700 dark:text-violet-300 border-violet-500/30"
+                >
+                  {tag}
+                </Badge>
+              ))}
             </div>
           )}
+
+          {/* CTA */}
+          <div className="flex flex-col sm:flex-row gap-3 pt-2">
+            {project.urls?.demo && (
+              <Button asChild variant="default" className="w-full sm:w-auto">
+                <Link
+                  href={project.urls.demo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Globe className="h-4 w-4 mr-2" />
+                  {t("project.links.demo")}
+                </Link>
+              </Button>
+            )}
+            {project.urls?.github && (
+              <Button asChild variant="outline" className="w-full sm:w-auto">
+                <Link
+                  href={project.urls.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <svg
+                    className="h-4 w-4 mr-2"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path d={siGithub.path} />
+                  </svg>
+                  {t("project.links.source")}
+                </Link>
+              </Button>
+            )}
+          </div>
         </div>
 
-        {(hasDescription || hasHighlights || hasGallery || hasTags) && (
-          <Separator className="my-8" />
-        )}
+        {(hasDescription || hasHighlights) && <Separator className="my-8" />}
 
         {/* Description */}
         {hasDescription && (
@@ -218,47 +193,6 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 <li key={index}>{getLocalizedText(highlight, locale)}</li>
               ))}
             </ul>
-          </div>
-        )}
-
-        {(hasDescription || hasHighlights) && hasGallery && (
-          <Separator className="my-8" />
-        )}
-
-        {/* Gallery */}
-        {hasGallery && (
-          <div className="space-y-4">
-            <h2 className="text-2xl font-semibold">
-              {t("project.sections.screenshots")}
-            </h2>
-            <div className="grid gap-[3px] grid-cols-6 grid-flow-dense">
-              {project.images?.gallery?.map((screenshot, index) => (
-                <div
-                  key={`desktop-${index}`}
-                  className="relative col-span-6 sm:col-span-4 aspect-[16/10] overflow-hidden"
-                >
-                  <Image
-                    src={screenshot}
-                    alt={`${title} - desktop screenshot ${index + 1}`}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-              ))}
-              {project.images?.mobileGallery?.map((screenshot, index) => (
-                <div
-                  key={`mobile-${index}`}
-                  className="relative col-span-3 sm:col-span-2 aspect-[9/16] overflow-hidden"
-                >
-                  <Image
-                    src={screenshot}
-                    alt={`${title} - mobile screenshot ${index + 1}`}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-              ))}
-            </div>
           </div>
         )}
       </div>

@@ -53,17 +53,7 @@
       "demo": "https://prod-show-case.vercel.app",
       "github": "https://github.com/quterma/prod-show-case"
     },
-    "images": {
-      "cover": "/projects/product-showcase/cover.png",
-      "gallery": [
-        "/projects/product-showcase/landscape/filters-dark.png",
-        "/projects/product-showcase/landscape/edit-form-light.png"
-      ],
-      "mobileGallery": [
-        "/projects/product-showcase/vertical/products-mobile-light.png",
-        "/projects/product-showcase/vertical/create-form-dark-mobile.png"
-      ]
-    }
+    "images": []
   },
   {
     "slug": "progis-map-app",
@@ -108,14 +98,7 @@
       "demo": "https://quterma.github.io/progis-map-app",
       "github": "https://github.com/quterma/progis-map-app"
     },
-    "images": {
-      "cover": "/projects/progis-map-app/cover.png",
-      "gallery": [
-        "/projects/progis-map-app/landscape/1.png",
-        "/projects/progis-map-app/landscape/2.png"
-      ],
-      "mobileGallery": ["/projects/progis-map-app/vertical/1.png"]
-    }
+    "images": []
   },
   {
     "slug": "trading-mini-app",
@@ -159,10 +142,7 @@
     "urls": {
       "github": "https://github.com/quterma/trading-mini-app"
     },
-    "images": {
-      "cover": "/projects/trading-mini-app/cover.png",
-      "mobileGallery": ["/projects/trading-mini-app/vertical/1.png"]
-    }
+    "images": []
   },
   {
     "slug": "yokai-monitor",
@@ -220,10 +200,6 @@
       "demo": "https://yokai-monitor.vercel.app",
       "github": "https://github.com/quterma/yokai-monitor"
     },
-    "images": {
-      "cover": "/projects/yokai-monitor/cover.png",
-      "gallery": ["/projects/yokai-monitor/landscape/1.png"],
-      "mobileGallery": ["/projects/yokai-monitor/vertical/1.png"]
-    }
+    "images": []
   }
 ]

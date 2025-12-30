@@ -58,22 +58,20 @@ describe("schemas", () => {
         title: { en: "Test Project", ru: "Тестовый проект" },
         summary: { en: "Summary", ru: "Краткое описание" },
         description: { en: "Full description" },
-        year: 2024,
         status: "completed",
         featured: true,
         role: { en: "Developer", ru: "Разработчик" },
-        period: { en: "2024-01", ru: "Январь 2024" },
-        tags: ["web", "frontend"],
-        tech: ["React", "TypeScript"],
+        tags: {
+          domain: ["E-commerce"],
+          tech: ["React", "TypeScript"],
+          architecture: ["FSD"],
+        },
         highlights: [{ en: "Feature 1" }, { en: "Feature 2" }],
         urls: {
           demo: "https://example.com",
           github: "https://github.com/test/test",
         },
-        images: {
-          cover: "/cover.jpg",
-          gallery: ["/img1.jpg", "/img2.jpg"],
-        },
+        images: ["/img1.jpg", "/img2.jpg"],
       }
       const result = ProjectSchema.safeParse(data)
       expect(result.success).toBe(true)
@@ -142,13 +140,10 @@ describe("schemas", () => {
         title: { en: "Test" },
         summary: { en: "Summary" },
         description: undefined,
-        year: undefined,
         status: undefined,
         featured: undefined,
         role: undefined,
-        period: undefined,
         tags: undefined,
-        tech: undefined,
         highlights: undefined,
         urls: undefined,
         images: undefined,
